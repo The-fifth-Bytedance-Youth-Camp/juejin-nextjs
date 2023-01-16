@@ -1,0 +1,21 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "semi": [ "error", "always" ],
+    "quotes": [ "error", "single" ],
+    "no-extra-parens": [ "error", "all" ],
+    "block-spacing": [ "error", "always" ],
+    "max-lines": [ "error", { "max": 300 } ],
+    "array-bracket-spacing": [ "error", "always" ],
+    "comma-dangle": [ "error", "always-multiline" ],
+    "template-curly-spacing": [ "error", "always" ],
+    "array-element-newline": [ "error", "consistent" ],
+    "object-curly-spacing": [ "error", "always" ],
+    "array-bracket-newline": [ "error", { "multiline": true } ]
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  }
+}

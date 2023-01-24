@@ -1,11 +1,12 @@
 import React from 'react';
-import Index from '@/components/chapter';
-import Chapter from '@/components/chapter';
+import Author from '@/component/author';
+import Banner from '@/component/banner';
 
 const Home = () => {
 	return (
 		<div>
-			<Chapter/>
+			<Banner/>
+			<Author/>
 		</div>
 	);
 };

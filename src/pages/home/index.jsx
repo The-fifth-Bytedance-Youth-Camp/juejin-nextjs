@@ -1,6 +1,6 @@
 import React from 'react';
-import Index from '@/component/chapter';
-import Chapter from '@/component/chapter';
+import Index from '@/components/chapter';
+import Chapter from '@/components/chapter';
 
 const Home = () => {
 	return (

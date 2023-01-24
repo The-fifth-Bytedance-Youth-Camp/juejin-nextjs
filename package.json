@@ -1,30 +1,40 @@
 {
-  "name": "juejin-nextjs",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@ant-design/icons": "^5.0.0",
-    "@next/font": "13.1.2",
-    "antd": "^5.1.5",
-    "eslint": "8.32.0",
-    "eslint-config-next": "13.1.2",
-    "next": "13.1.2",
-    "pubsub-js": "^1.9.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "uuid": "^9.0.0"
-  },
-  "devDependencies": {
-    "fibers": "^5.0.3",
-    "sass": "^1.57.1",
-    "sass-loader": "^13.2.0",
-    "serve": "^14.1.2",
-    "yarn": "^1.22.19"
-  }
+	"name": "juejin-nextjs",
+	"version": "0.1.0",
+	"private": false,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@ant-design/icons": "^5.0.0",
+		"@next/font": "13.1.2",
+		"antd": "^5.1.5",
+		"babel-plugin-prismjs": "^2.1.0",
+		"copy-to-clipboard": "^3.3.3",
+		"eslint": "^8.32.0",
+		"eslint-config-next": "13.1.2",
+		"github-markdown-css": "^5.1.0",
+		"next": "13.1.2",
+		"prism-themes": "^1.9.0",
+		"prismjs": "^1.29.0",
+		"pubsub-js": "^1.9.4",
+		"react": "18.2.0",
+		"react-copy-to-clipboard": "^5.1.0",
+		"react-dom": "18.2.0",
+		"react-helmet": "^6.1.0",
+		"react-markdown": "^8.0.4",
+		"react-syntax-highlighter": "^15.5.0",
+		"rehype-katex": "^6.0.2",
+		"remark-gfm": "^3.0.1",
+		"remark-math": "^5.1.1",
+		"uuid": "^9.0.0"
+	},
+	"devDependencies": {
+		"fibers": "^5.0.3",
+		"sass": "^1.57.1",
+		"sass-loader": "^13.2.0"
+	}
 }

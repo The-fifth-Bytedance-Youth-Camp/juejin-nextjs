@@ -1,0 +1,38 @@
+@import "../../../assets/styles/responsive";
+
+@media screen and (min-width: $pc) {
+  .Article {
+    width: 820px;
+  }
+}
+
+@media screen and (min-width: $ipad) {
+  .Article {
+    width: calc(100% - 320px);
+  }
+}
+
+@media screen and (max-width: $ipad) {
+  .Article {
+    width: 100vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .Article {
+    h1.title {
+      font-size: 1.4em;
+    }
+  }
+}
+
+.Article {
+  padding: 32px;
+  background-color: var(--secondary-background-color) !important;
+
+  h1.title {
+    border: 0;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+}

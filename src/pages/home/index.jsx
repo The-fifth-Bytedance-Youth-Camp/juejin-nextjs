@@ -1,9 +1,11 @@
 import React from 'react';
+import Index from '@/components/chapter';
+import Chapter from '@/components/chapter';
 
 const Home = () => {
 	return (
 		<div>
-			Home
+			<Chapter/>
 		</div>
 	);
 };

@@ -1,6 +1,7 @@
 import { ConfigProvider } from 'antd';
 import { useEffect } from 'react';
 import { rem } from '@/assets/js/rem';
+import '../assets/scss/init.scss'
 
 const theme = {
 	token: {

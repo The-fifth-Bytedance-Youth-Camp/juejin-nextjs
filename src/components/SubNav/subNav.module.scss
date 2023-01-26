@@ -2,6 +2,9 @@
     height: 45px;
     background-color: #fff;
     border-top: 1px solid #f1f1f1;
+    @media screen and (max-width: 980px){
+        height: auto;
+    }
     
     .subMenuBox {
         max-width: 960px;
@@ -10,6 +13,11 @@
         display: flex;
         align-items: center;
         line-height: 1;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        @media screen and (max-width: 980px){ 
+            overflow-x: auto;
+        }
 
         li{
             height: 100%;
@@ -19,6 +27,9 @@
 
             &:nth-child(1) a {
                 padding-left: 0;
+                @media screen and (max-width: 980px){ 
+                    padding-left: 12px;
+                }
             }
 
             a {
@@ -28,6 +39,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                flex-shrink: 0;
                 cursor: pointer;
 
                 &:hover {

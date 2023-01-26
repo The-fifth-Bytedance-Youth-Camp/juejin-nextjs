@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import style from './Header.module.scss'
 import logo from '../../assets/svg/logo-large.svg'
+import logo_s from '../../assets/svg/logo-small.svg'
 import SubNav from '../SubNav'
 
  class Header extends Component {
@@ -18,15 +19,7 @@ import SubNav from '../SubNav'
                     {id: 7, name: '人工智能', path: '/home/', tags: []},
                     {id: 8, name: '开发工具', path: '/home/', tags: []},
                     {id: 9, name: '代码人生', path: '/home/', tags: []},
-                    {id: 10, name: '阅读', path: '/home/', tags: []},
-                    {id: 10, name: '阅读', path: '/home/', tags: []},
-                    {id: 10, name: '阅读', path: '/home/', tags: []},
-                    {id: 10, name: '阅读', path: '/home/', tags: []},
-                    {id: 10, name: '阅读', path: '/home/', tags: []},
-                    {id: 10, name: '阅读', path: '/home/', tags: []},
-                    {id: 10, name: '阅读', path: '/home/', tags: []},
-                    {id: 10, name: '阅读', path: '/home/', tags: []},
-                    {id: 10, name: '阅读', path: '/home/', tags: []},
+                    {id: 10, name: '阅读', path: '/home/', tags: []}
                 ]
             },
             {
@@ -91,7 +84,37 @@ import SubNav from '../SubNav'
                         })}
                     </ul>   
                 </div>
-            </div>   
+                {/* phone */}
+                <div className={style.phone}>
+                    {/*logo*/}
+                    <a href="/">
+                        <img src={logo_s.src} alt="掘金"/>
+                    </a>
+                    <div className={style.phoneMenu}>
+                        首页
+                        <span className={style.arrow}></span>
+                    </div>
+                    <ul className={style.phoneNavList}>
+                        {navList.map((item) => {
+                            return (
+                                <li key={item.id} onClick={() => this.navClick(item)}>
+                                    <a
+                                        to={item.path}
+                                        exact="true"
+                                        className={item.id === lightH ? `${style.active}` : ""}
+                                        key={item.id}
+                                    >
+                                        {item.name}
+                                        <span className={item.tag==='' ? '' : style.tag}>
+                                            {item.tag}
+                                        </span>
+                                    </a>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            </div>
             <div className={style.subNav} > {/* style={{display: this.props.showSubNav ? 'block' : 'none'}} */}
                 <SubNav subMenuList={navList[currentPathIndex].subMenuList}/>
             </div>

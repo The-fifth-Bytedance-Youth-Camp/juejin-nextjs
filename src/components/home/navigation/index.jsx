@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import style from './subNav.module.scss';
+import style from './index.module.scss';
 
 export default class SubNav extends PureComponent {
 	state = {

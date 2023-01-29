@@ -1,0 +1,42 @@
+/* 初始化样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: fit-content;
+    height: fit-content;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body, html {
+    -webkit-font-smoothing: unset !important;
+    font-family: -apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial !important;
+}
+
+/* 代码块 */
+.markdown-body pre {
+    background-color: var(--code-block-background-color) !important;
+}
+
+/* 复制成功的弹窗 */
+.ant-message-notice-content {
+    color: var(--message-notice-color) !important;
+    border: var(--message-notice-border) !important;
+    background-color: var(--secondary-background-color) !important;
+}
+
+/* 悬浮按钮 */
+:where(.css-dev-only-do-not-override-1i9hnpv).ant-float-btn-default {
+    border: var(--float-btn-border);
+    background-color: var(--secondary-background-color);
+}
+
+:where(.css-dev-only-do-not-override-1i9hnpv).ant-float-btn-default .ant-float-btn-body {
+    background-color: var(--secondary-background-color);
+}

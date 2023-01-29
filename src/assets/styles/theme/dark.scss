@@ -1,0 +1,13 @@
+html[data-theme="dark"] {
+  --secondary-color: #c9d1d9;
+  --primary-background-color: #22272e;
+  --secondary-background-color: #2d333b;
+  --message-notice-color: #c9d1d9;
+  --message-notice-border: 2px rgba(255, 255, 255, 0.05) solid;
+  --float-btn-border: 2px rgba(255, 255, 255, .05) solid;
+  --code-block-background-color: #1e1f22;
+
+  img {
+    filter: brightness(.68);
+  }
+}

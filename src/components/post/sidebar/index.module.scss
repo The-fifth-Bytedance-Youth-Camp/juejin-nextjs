@@ -1,0 +1,23 @@
+@import "../../../assets/styles/responsive";
+
+@media screen and (min-width: $ipad) {
+  .Sidebar {
+    display: block;
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: $ipad) {
+  .Sidebar {
+    display: none;
+    width: 30rem;
+  }
+}
+
+.Sidebar {
+  background-color: blue;
+
+  & > * {
+    margin-bottom: 2rem;
+  }
+}

@@ -1,7 +1,10 @@
 import { ConfigProvider } from 'antd';
 import { useEffect } from 'react';
 import { rem } from '@/assets/js/rem';
-import '../assets/scss/init.scss'
+import '@/assets/styles/init.css';
+import '@/assets/styles/markdown/github-markdown.scss';
+import '@/assets/styles/theme/light.scss';
+import '@/assets/styles/theme/dark.scss';
 
 const theme = {
 	token: {

@@ -2,6 +2,8 @@
 import '@/assets/scss/init.scss';
 import '@/assets/scss/globals.scss';
 import { ConfigProvider } from 'antd';
+import { rem } from '@/assets/js/rem';
+import { useEffect } from 'react';
 
 const theme = {
 	token: {
@@ -10,6 +12,9 @@ const theme = {
 };
 
 export default function App({ Component, pageProps }) {
+	useEffect(() => {
+		document.documentElement.style.fontSize = 100/1534 + 'vw'
+	}, []);
 	return (
 		<ConfigProvider theme={ theme }>
 			<Component { ...pageProps } />

@@ -12,3 +12,7 @@ export function rem(doc, win) {
 	win.addEventListener(resizeEvt, recalc, false);
 	doc.addEventListener('DOMContentLoaded', recalc, false);
 }
+
+export function auto(doc){
+
+}

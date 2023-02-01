@@ -1,0 +1,23 @@
+.Home {
+  margin-top: 16px;
+  width: 100vw;
+  padding-top: 105px;
+  background-color: #f4f5f5;
+
+  .content {
+    width: 960px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    .post_list {
+      width: 700px;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+
+    .aside {
+      width: 240px;
+    }
+  }
+}

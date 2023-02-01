@@ -31,6 +31,7 @@ export class Fxios {
 	 * @memberof Fxios
 	 */
 	async request(url, options = {}) {
+		if (url.startsWith('/')) url.substr(1);
 		if (this.basicURL) url = this.basicURL + url;
 		options = { ...this.defaults, ...options };
 		const contentType = options.headers['Content-Type'];

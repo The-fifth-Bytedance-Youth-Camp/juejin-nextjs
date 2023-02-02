@@ -1,8 +1,11 @@
 .Home {
-  margin-top: 16px;
   width: 100vw;
-  padding-top: 105px;
   background-color: #f4f5f5;
+
+  .header {
+    height: 105px;
+    margin-bottom: 16px;
+  }
 
   .content {
     width: 960px;

@@ -9,13 +9,13 @@ const Index = () => {
 			<div className={ styles.nav }>
 				<span className={ currentTab === 1 ? styles.fontChecked : styles.font }>推荐</span>
 				<span className={ styles.icon }>|</span>
-				<span className={ styles.font }>更新</span>
+				<span className={ styles.font }>最新</span>
 				<span className={ styles.icon }>|</span>
 				<span className={ styles.font }>热榜</span>
 			</div>
 			<div className={ styles.content }>
 				<div className={ styles.head }>
-					<span className={ styles.font }>作者</span>
+					<span className={ styles.fontau }>作者</span>
 					<span className={ styles.icon }>|</span>
 					<span className={ styles.font }>时间</span>
 				</div>
@@ -24,14 +24,14 @@ const Index = () => {
 						<div className={ styles.title }>创意投稿大赛来袭，啊是的哈哈的哈哈哈大厦大厦和</div>
 						<div className={ styles.font }>又是一年春暖花开</div>
 						<div className={ styles.icon }>
-							<span><EyeOutlined/>15</span>
-							<span><LikeOutlined/>18</span>
-							<span><CommentOutlined/>88</span>
+							<span><EyeOutlined style={{ color: '#4e5969' }}/><span className={styles.num}>15w</span></span>
+							<span className={styles.hov}><LikeOutlined/><span className={styles.num}>18</span></span>
+							<span className={styles.hov}><CommentOutlined/><span className={styles.num}>88</span></span>
 						</div>
 					</div>
 					<div className={ styles.imgContainer }>
 						<img
-							src={ 'https://edu-learn-bbb.oss-cn-chengdu.aliyuncs.com/2023/01/05/6863c3ed0d054d8eae7d21a7e08348b6%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221216_204914.png' }/>
+							src={ 'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ad60d8bedf8847e39a50e807921d6e82~tplv-k3u1fbpfcp-no-mark:240:240:240:160.awebp?' }/>
 					</div>
 				</div>
 			</div>

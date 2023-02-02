@@ -7,9 +7,9 @@
 }
 
 .header {
-  padding: 1.2rem 1.3rem;
+  padding: 12px 16px;
   border-bottom: 1px solid hsla(0, 0%, 59.2%, .1);
-  font-size: 1.9rem;
+  font-size: 14px;
   line-height: 1.29;
   color: #333;
 }
@@ -26,12 +26,12 @@
 }
 
 .avatar {
-  padding: 1rem 1.3rem;
+  padding: 10px 16px;
 }
 
 .avatar_img {
-  width: 6rem;
-  height: 6rem;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
 }
 
@@ -48,7 +48,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 1.8rem;
+  font-size: 14px;
   font-weight: 400;
   color: #333;
 }
@@ -56,7 +56,7 @@
 .user_position {
   margin-top: 4px;
   color: #909090;
-  font-size: 1rem;
+  font-size: 10px;
   margin-bottom: 3px;
   white-space: nowrap;
   overflow: hidden;
@@ -65,9 +65,9 @@
 
 .more {
   color: #007fff;
-  padding: 1rem 0;
+  padding: 11px 0;
   text-align: center;
   border-top: 1px solid hsla(0, 0%, 59.2%, .1);
-  font-size: 1.9rem;
+  font-size: 14px;
   cursor: pointer;
 }

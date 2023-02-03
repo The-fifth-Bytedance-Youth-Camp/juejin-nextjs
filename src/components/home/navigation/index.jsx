@@ -4,7 +4,7 @@ import style from './index.module.scss';
 const Navigation = ({ navList }) => {
 	const [ lightH, setLightH ] = useState(1);
 	const navClick = (item) => setLightH(item.id);
-	
+
 	return (
 		<div className={ style.subMenu }>
 			<ul className={ style.subMenuBox }>

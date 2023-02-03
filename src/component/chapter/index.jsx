@@ -4,14 +4,17 @@ import { EyeOutlined, LikeOutlined, CommentOutlined } from '@ant-design/icons'
 
 const Index = () => {
 	const [currentTab, setCurrentTab] = useState(1)
+	const changeCurrentTab = (tab) => {
+		setCurrentTab(tab)
+	}
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.nav}>
-				<span className={currentTab===1 ? styles.fontChecked : styles.font}>推荐</span>
+				<span onClick={()=>changeCurrentTab(1)} className={currentTab===1 ? styles.fontChecked : styles.font}>推荐</span>
 				<span className={styles.icon}>|</span>
-				<span className={styles.font}>更新</span>
+				<span onClick={()=>changeCurrentTab(2)} className={currentTab===2 ? styles.fontChecked : styles.font}>更新</span>
 				<span className={styles.icon}>|</span>
-				<span className={styles.font}>热榜</span>
+				<span onClick={()=>changeCurrentTab(3)} className={currentTab===3 ? styles.fontChecked : styles.font}>热榜</span>
 			</div>
 			<div className={styles.content}>
 				<div className={styles.head}>

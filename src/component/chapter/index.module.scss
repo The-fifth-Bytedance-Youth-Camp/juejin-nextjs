@@ -9,8 +9,20 @@
   }
 }
 @media screen and (max-width: 700px){
-   .wrapper{
+   .wrapper {
      width: 1500rem;
+     .introduce {
+       .fonts {
+         .title {
+           overflow: hidden;
+           margin-right: 15px;
+           -webkit-box-orient: vertical;
+           -webkit-line-clamp: 1;
+           display: -webkit-box;
+         }
+
+       }
+     }
    }
 }
 .wrapper{
@@ -66,7 +78,10 @@
           height: 50px;
           line-height: 50px;
           font-weight: 700;
+          //overflow: hidden;
+          //margin-right: 15px;
         }
+
         .font{
           font-size: 12px;
         }

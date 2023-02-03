@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import style from './index.module.scss';
 import Article from '@/components/post/article';
 import Sidebar from '@/components/post/sidebar';
@@ -14,13 +14,14 @@ import useTheme from '@/utils/hooks/useTheme';
 
 const { Group } = FloatButton;
 
-const Post = ({ title, cover, content, category, tags, author, avatar, time, readCount,contentNav }) => {
+const Post = ({ title, cover, content, category, tags, author, avatar, time, readCount }) => {
 	const { theme, changeTheme } = useTheme();
 	useEffect(() => { copyright(author); }, [ author ]);
 	const screenWidth = useScreenWidth();
 	const isScrolling = useScrolling();
 	return (
 		<Fragment>
+
 			<Helmet>
 				<title>{ title }</title>
 				<meta name="keywords" content={ tags.join(',') }/>
@@ -32,7 +33,7 @@ const Post = ({ title, cover, content, category, tags, author, avatar, time, rea
 					<Article theme={ theme } title={ title } cover={ cover }
 									 content={ content } category={ category } tags={ tags }
 									 render={ () => <Author name={ author } avatar={ avatar } time={ time } readCount={ readCount }/> }/>
-					<Sidebar contentNav={ contentNav } />
+					<Sidebar  content={ content } />
 				</div>
 				{
 					screenWidth >= 960 || isScrolling ?
@@ -87,7 +88,6 @@ export async function getServerSideProps({ query: { id } }) {
 		'```';
 	content += content;
 	content += content;
-	// const reg = /^(#+)/;
 	const title = '[ HTTP协议 ｜ 青训营笔记 ]';
 	const author = '写代码的NCK';
 	const tags = [ '代码人生', '团队开发', '全栈' ];
@@ -97,10 +97,10 @@ export async function getServerSideProps({ query: { id } }) {
 	// const cover = null;
 	const category = '前端';
 	const avatar = 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-64a7a9ec-6536-4aec-a1c6-f76a1aa71ccf/d3839a7d-a7bb-4bdf-824d-b95e6da29c3f.png';
-	const contentNav = [ '对象解构','数组解构'];
 	return {
-		props: { title, cover, content, category, tags, author, avatar, time, readCount, contentNav },
+		props: { title, cover, content, category, tags, author, avatar, time, readCount, },
 	};
 }
+
 
 export default Post;

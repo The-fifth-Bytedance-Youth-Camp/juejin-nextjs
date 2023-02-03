@@ -6,9 +6,16 @@ import Banner from '@/components/home/banner';
 import Author from '@/components/home/author';
 import style from './index.module.scss';
 import useScreenWidth from '@/utils/hooks/useScreenWidth';
+import useScrolling from '@/utils/hooks/useScrolling';
+
+import { FloatButton } from 'antd';
+import BackTop from '@/components/post/backTopIcon';
+import FeedBack from '@/components/post/feedBack';
+const { Group } = FloatButton;
 
 const Home = ({ menuList, navList }) => {
 	const screenWidth = useScreenWidth();
+	const isScrolling = useScrolling();
 	return (
 		<div className={ style.Home }>
 			<div className={ style.header }>
@@ -23,6 +30,14 @@ const Home = ({ menuList, navList }) => {
 					<Banner/>
 					<Author/>
 				</div>
+				{
+					screenWidth >= 960 || isScrolling ?
+						<Group>
+							<BackTop/>
+							<FeedBack/>
+						</Group>
+						: null
+				}
 			</div>
 				
 		</div>

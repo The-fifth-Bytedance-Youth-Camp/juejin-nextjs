@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import banner from './index.module.scss';
 import { CloseOutlined } from'@ant-design/icons';
 
@@ -16,17 +16,34 @@ const Banner = () => {
     },
 	]);
   const handleClose=(index)=>{
-    console.log('lalala:'+index);
     banners.splice(index,1);
-    console.log(banners);
     setBanners([ ...banners ]);
   };
+
+  const [ scrollY, setScrollY ] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+  }, []);
+  // console.log(scrollY);
+
+
 	return (
-		<div className={banner.box}>
+		<div className={banner.box} style={scrollY>800?{ position:'sticky',top:'125px' }:null}>
       {
         banners.map((item,index)=>{
           return(
-            <div key={item.id} className={banner.box_top} style={{ display:`${ item.mouse }`?'block':'none' }}>
+            <div key={item.id} className={banner.box_top}>
               <img width="240" height="200" src={item.banner_img} />
               <div className={banner.ctrl_box}>
                 <CloseOutlined onClick={()=>{ handleClose(index); }} className={banner.close_btn} style={{ color:'#909090',fontSize:'13px' }}/>

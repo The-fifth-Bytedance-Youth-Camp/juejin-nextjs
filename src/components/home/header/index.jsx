@@ -65,6 +65,6 @@ const Header = ({ menuList }) => {
             </div>
         </div>
     );
-}
+};
 
 export default Header;

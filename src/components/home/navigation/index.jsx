@@ -24,6 +24,6 @@ const Navigation = ({ navList }) => {
 			</ul>
 		</div>
 	);
-}
+};
 
-export default Navigation
+export default Navigation;

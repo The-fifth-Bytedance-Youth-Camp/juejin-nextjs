@@ -12,7 +12,7 @@ const Home = ({ menuList, navList }) => {
 	return (
 		<div className={ style.Home }>
 			<div className={ style.header }>
-				<Header menuList={ menuList }/>
+				{/* <Header menuList={ menuList }/> */}
 				<Navigation navList={ navList }/>
 			</div>
 			<div className={ style.content }>

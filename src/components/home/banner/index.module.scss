@@ -1,9 +1,9 @@
 .box {
   /* background-color: rgb(235, 239, 243); */
   width: 240px;
-  position: absolute;
-  right: 33rem;
-  top: 28rem;
+  //position: absolute;
+  //right: 33rem;
+  //top: 28rem;
 }
 
 .box_top {
@@ -52,11 +52,10 @@
 }
 
 .bottom {
-  margin-top: 10px;
+  margin: 10px 0;
   padding: 16px;
   background-color: #fff;
   display: flex;
-  width: 210px;
   cursor: pointer;
 }
 

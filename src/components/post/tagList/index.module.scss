@@ -1,0 +1,29 @@
+.tag {
+  .category {
+    display: inline-block;
+    cursor: pointer;
+    color: #515767;
+    font-size: 1rem;
+    width: auto;
+    height: auto;
+    line-height: 32px;
+    padding: 0 10px 0 10px;
+    background: #f2f3f5;
+    border-radius: 5px;
+    margin: 0 2.67rem 0 8px;
+  }
+
+  .tagName {
+    display: inline-block;
+    cursor: pointer;
+    color: #1e80ff;
+    font-size: 14px;
+    margin: 0 8px;
+    width: auto;
+    height: auto;
+    line-height: 32px;
+    padding: 0 10px 0 10px;
+    background: #eaf2ff;
+    border-radius: 5px;
+  }
+}

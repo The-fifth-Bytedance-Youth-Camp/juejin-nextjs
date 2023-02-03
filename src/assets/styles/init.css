@@ -10,9 +10,9 @@ body {
     height: fit-content;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
+/*::-webkit-scrollbar {*/
+/*    display: none;*/
+/*}*/
 
 body, html {
     -webkit-font-smoothing: unset !important;

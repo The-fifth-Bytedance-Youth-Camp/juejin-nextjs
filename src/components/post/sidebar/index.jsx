@@ -14,9 +14,6 @@ import MarkNav from "markdown-navbar";
 const Sidebar = ({ content }) => {
 	return (
 		<div className={ style.Sidebar } >
-		<Card title="目录" style={{ width: 300 }}>
-			<MarkNav source={ content } />
-		</Card>
 		<Card title="相关文章" style={{ width: 300 }} >
 			<p className={ style.related }>共克时疫 | 面对疫情，掘金开发者们贡献出的那些技术力量</p>
 			<div className={ style.extra }>
@@ -29,8 +26,11 @@ const Sidebar = ({ content }) => {
 			<div className={ style.comment }>85评论</div>
 			</div>
 		</Card>
-		<Card title="下一篇" style={{ width: 300 }}>
+		<Card className={ style.next } title="下一篇" style={{ width: 300 }}>
 			<p>🏆 技术专题第一期 | 聊聊 Deno的一些事儿</p>
+		</Card>
+		<Card  className={ style.menuNav } title="目录" style={{ width: 300 }}>
+			<MarkNav source={ content } />
 		</Card>
 		</div>
 		

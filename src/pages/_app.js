@@ -13,7 +13,7 @@ const theme = {
 
 export default function App({ Component, pageProps }) {
 	useEffect(() => {
-		document.documentElement.style.fontSize = 100/1534 + 'vw'
+		document.documentElement.style.fontSize = 100/1534 + 'vw';
 	}, []);
 	return (
 		<ConfigProvider theme={ theme }>

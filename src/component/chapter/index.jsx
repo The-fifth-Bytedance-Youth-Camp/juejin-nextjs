@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import styles from './index.module.scss'
 import { EyeOutlined, LikeOutlined, CommentOutlined } from '@ant-design/icons'
 
-const Index = () => {
+const Index = (props) => {
+	const changeLabel = props.changeLabel
 	const [currentTab, setCurrentTab] = useState(1)
 	const changeCurrentTab = (tab) => {
 		setCurrentTab(tab)
+		changeLabel(tab)
 	}
 	return (
 		<div className={styles.wrapper}>

@@ -7,7 +7,6 @@
     left: 0px;
     z-index: 100;
     transition: all .2s;
-    // transform: translate3d(0,-100%,0);
 
     .container {
         height: 100%;
@@ -205,4 +204,9 @@
   
     }
 
+}
+
+.hide{
+    transform: translate3d(0,-100%,0);
+    transition: all .2s;
 }

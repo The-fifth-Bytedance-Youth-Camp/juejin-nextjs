@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import style from './index.module.scss';
 
 const Navigation = ({ navList }) => {
 	const [ lightH, setLightH ] = useState(1);
 	const navClick = (item) => setLightH(item.id);
-	
+	const handleScroll = ()=>{
+        let scrollTop = document.documentElement.scrollTop;
+        const header = document.querySelector('div[class^="navigation"]');
+        if(scrollTop<=500){
+            header.className = `${style.subMenu}`
+        }
+        else header.className = `${style.subMenu}  ${style.hide}`
+    }
+    useEffect(()=>{
+        window.addEventListener('scroll',handleScroll)
+    },[]) 
+
 	return (
 		<div className={ style.subMenu }>
 			<ul className={ style.subMenuBox }>

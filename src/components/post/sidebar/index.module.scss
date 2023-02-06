@@ -16,10 +16,28 @@
 }
 
 .Sidebar {
-  background-color: #eeeeee;
-
   & > * {
     margin-bottom: 2rem;
   }
+  .related{
+    line-height: 200%;
+  }
+  .related:hover{
+    color: skyblue;
+  }
+  .extra{
+    display: inline-block;
+  }
+  .like{
+    color:#8a919f;
+    float: left;
+  }
+  .comment{
+    color: #8a919f;
+    float: left;
+  }
+  .menuNav{
+    position: sticky;
+    top: 0px;
+  }
 }
-

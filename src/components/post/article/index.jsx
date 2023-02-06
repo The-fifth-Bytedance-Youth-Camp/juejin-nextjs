@@ -6,7 +6,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { Image } from 'antd';
 import CodeBlock from '@/components/post/codeBlock';
-import TagList from '@/components/post/tagList';
+import TagList from '../tagList';
 
 const imgPreview = { mask: null };
 
@@ -39,7 +39,7 @@ const Article = ({ theme, title, cover, content, render = () => {} }) => {
 										 remarkPlugins={ [ [ remarkGfm, { singleTilde: false }, remarkMath ] ] }>
 				{ content }
 			</ReactMarkdown>
-			<TagList/>
+			<TagList></TagList>
 		</div>
 	);
 };

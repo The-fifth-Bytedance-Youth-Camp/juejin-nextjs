@@ -8,13 +8,13 @@ const Navigation = ({ navList }) => {
         let scrollTop = document.documentElement.scrollTop;
         const header = document.querySelector('div[class^="navigation"]');
         if(scrollTop<=500){
-            header.className = `${style.subMenu}`
+            header.className = `${ style.subMenu }`;
         }
-        else header.className = `${style.subMenu}  ${style.hide}`
-    }
+        else header.className = `${ style.subMenu }  ${ style.hide }`;
+    };
     useEffect(()=>{
-        window.addEventListener('scroll',handleScroll)
-    },[]) 
+        window.addEventListener('scroll',handleScroll);
+    },[]); 
 
 	return (
 		<div className={ style.subMenu }>

@@ -11,13 +11,13 @@ const Header = ({ menuList , children }) => {
         let scrollTop = document.documentElement.scrollTop;
         const header = document.querySelector('div[class^="header"]');
         if(scrollTop<=500){
-            header.className = `${style.header}`
+            header.className = `${ style.header }`;
         }
-        else header.className = `${style.header}  ${style.hide}`
-    }
+        else header.className = `${ style.header }  ${ style.hide }`;
+    };
     useEffect(()=>{
-        window.addEventListener('scroll',handleScroll)
-    },[])
+        window.addEventListener('scroll',handleScroll);
+    },[]);
 
     return (
         <>

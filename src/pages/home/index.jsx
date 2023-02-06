@@ -12,9 +12,10 @@ import BackTop from '@/components/post/backTopIcon';
 import FeedBack from '@/components/post/feedBack';
 const { Group } = FloatButton;
 
-const Home = ({ navList }) => {
+const Home = ({ navList, userList, bannerList }) => {
 	const screenWidth = useScreenWidth();
 	const isScrolling = useScrolling();
+	
 	return (
 		<div className={ style.Home }>
 			<div className={ style.header }>
@@ -25,8 +26,8 @@ const Home = ({ navList }) => {
 					<Chapter/>
 				</div>
 				<div className={ style.aside }>
-					<Banner/>
-					<Author/>
+					<Banner bannerList={bannerList}  />
+					<Author userList={userList}/>
 				</div>
 				{
 					screenWidth >= 960 || isScrolling ?
@@ -56,8 +57,37 @@ export async function getServerSideProps() {
 		{ id: 9, name: '代码人生', path: '/home/', tags: [] },
 		{ id: 10, name: '阅读', path: '/home/', tags: [] },
 	];
+	// 作者榜信息
+	const userList = [
+		{
+			name: '子奕',
+			avatar: 'https://p3-passport.byteimg.com/img/user-avatar/c2187f61d1fe229e6da86541432ba7d3~100x100.awebp',
+			rank: 'https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-6.b69935b.png',
+			position: '前端 @ Alibaba',
+		},
+		{
+			name: 'lala',
+			avatar: 'https://p3-passport.byteimg.com/img/user-avatar/c2187f61d1fe229e6da86541432ba7d3~100x100.awebp',
+			rank: 'https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-6.b69935b.png',
+			position: '前端 @ Alibaba',
+		},
+	];
+	// 广告栏信息
+	const bannerList = [
+		{
+			id: 1,
+			banner_img: 'https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e67047a2e2b4187886a0eee2c1e93aa~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp',
+			mouse: true,
+		},
+		{
+			id: 2,
+			banner_img: 'https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d45456b58f08408f9bf0bdd51dcf3bcb~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?',
+			mouse: true,
+		},
+	];
+	
 	return {
-		props: { navList },
+		props: { navList, userList, bannerList },
 	};
 }
 

@@ -2,19 +2,8 @@ import React, { useState,useEffect } from 'react';
 import banner from './index.module.scss';
 import { CloseOutlined } from'@ant-design/icons';
 
-const Banner = () => {
-  const [ banners, setBanners ] = useState([
-		{
-      id: 1,
-      banner_img: 'https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e67047a2e2b4187886a0eee2c1e93aa~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp',
-      mouse: true,
-    },
-    {
-      id: 2,
-      banner_img: 'https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d45456b58f08408f9bf0bdd51dcf3bcb~tplv-k3u1fbpfcp-no-mark:480:400:0:0.awebp?',
-      mouse: true,
-    },
-	]);
+const Banner = ({ bannerList }) => {
+  const [ banners, setBanners ] = useState(bannerList);
   const handleClose=(index)=>{
     banners.splice(index,1);
     setBanners([ ...banners ]);
@@ -35,7 +24,6 @@ const Banner = () => {
     };
 
   }, []);
-  // console.log(scrollY);
 
 
 	return (

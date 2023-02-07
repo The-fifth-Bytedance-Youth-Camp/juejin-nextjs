@@ -35,7 +35,7 @@
   .content {
     padding: 13px 20px;
     border-bottom: 1px solid hsla(0,0%,59.2%,.1);
-    //background-color: #bfa;
+    color:var(--message-notice-color);
     .head {
       .font {
         font-size: 13px;
@@ -61,7 +61,7 @@
     .introduce {
       display: flex;
       justify-content: space-between;
-
+      color:var(--message-notice-color);
       .fonts {
         overflow: hidden;
         white-space: nowrap;
@@ -112,7 +112,8 @@
     }
   }
   .content:hover{
-    background-color: #fafafa;
+    background-color: var(--hover-background-color);
+    //background-color: #fafafa;
     cursor:pointer;
   }
 }

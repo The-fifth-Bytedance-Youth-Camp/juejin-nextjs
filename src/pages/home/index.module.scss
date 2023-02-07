@@ -1,6 +1,6 @@
 .Home {
   width: 100vw;
-  background-color: #f4f5f5;
+  background-color: var(--primary-background-color);
 
   .header {
     height: 105px;
@@ -15,7 +15,7 @@
 
     .post_list {
       width: 700px;
-      background-color: #ffffff;
+      background-color: var(--secondary-background-color);
       overflow: hidden;
     }
 

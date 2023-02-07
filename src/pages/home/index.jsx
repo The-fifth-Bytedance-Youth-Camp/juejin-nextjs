@@ -1,4 +1,5 @@
-import { React } from 'react';
+import { React, Fragment } from 'react';
+import { Helmet } from 'react-helmet';
 import Navigation from '@/components/home/navigation';
 import Chapter from '@/components/home/chapter';
 import Banner from '@/components/home/banner';
@@ -14,38 +15,50 @@ import useTheme from '@/utils/hooks/useTheme';
 
 const { Group } = FloatButton;
 
-const Home = ({ navList, userList, bannerList }) => {
+const Home = ({ title, tag, content, navList, userList, bannerList }) => {
 	const screenWidth = useScreenWidth();
 	const isScrolling = useScrolling();
 	const { theme, changeTheme } = useTheme();
 
 	return (
-		<div className={ style.Home }>
-			<div className={ style.header }>
-				<Navigation navList={ navList }/>
-			</div>
-			<div className={ style.content }>
-				<div className={ style.post_list } style={ screenWidth <= 960 ? { width: screenWidth } : {} }>
-					<Chapter/>
+		<Fragment>
+			<Helmet>
+				<title>{ title }</title>
+				<meta name="description" content={ content.substring(0, 100) }/>
+				<meta name="keywords" content={ tag }/>
+			</Helmet>
+			<div className={ style.Home }>
+				<div className={ style.header }>
+					<Navigation navList={ navList }/>
 				</div>
-				<div className={ style.aside }>
-					<Banner bannerList={ bannerList }/>
-					<Author userList={ userList }/>
+				<div className={ style.content }>
+					<div className={ style.post_list } style={ screenWidth <= 960 ? { width: screenWidth } : {} }>
+						<Chapter/>
+					</div>
+					<div className={ style.aside }>
+						<Banner bannerList={ bannerList }/>
+						<Author userList={ userList }/>
+					</div>
+					{
+						screenWidth >= 960 || isScrolling ?
+							<Group>
+								<BackTop/>
+								<ToggleTheme theme={ theme } changeTheme={ changeTheme }/>
+							</Group>
+							: null
+					}
 				</div>
-				{
-					screenWidth >= 960 || isScrolling ?
-						<Group>
-							<BackTop/>
-							<ToggleTheme theme={ theme } changeTheme={ changeTheme }/>
-						</Group>
-						: null
-				}
 			</div>
-		</div>
+		</Fragment>
 	);
 };
 
 export async function getServerSideProps() {
+	// TDK
+	const title = '稀土掘金';
+	const tag = '掘金,稀土,Vue.js,前端面试题,Kotlin,ReactNative,Python';
+	const content = '掘金是面向全球中文开发者的技术内容分享与交流平台。我们通过技术文章、沸点、课程、直播等产品和服务，打造一个激发开发者创作灵感，激励开发者沉淀分享，陪伴开发者成长的综合类技术社区。';
+	
 	// 二级导航：Navigation参数
 	const navList = [
 		{ id: 1, name: '综合', path: '/home/', tags: [] },
@@ -89,7 +102,7 @@ export async function getServerSideProps() {
 	];
 
 	return {
-		props: { navList, userList, bannerList },
+		props: { title, tag, content, navList, userList, bannerList },
 	};
 }
 

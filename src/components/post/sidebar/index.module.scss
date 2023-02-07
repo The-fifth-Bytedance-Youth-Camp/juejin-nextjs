@@ -30,6 +30,7 @@
   .like{
     color:#8a919f;
     float: left;
+    background-color: var(--card-background-color);
   }
   .comment{
     color: #8a919f;
@@ -38,5 +39,13 @@
   .menuNav{
     position: sticky;
     top: 0px;
+    background-color: var(--card-background-color);
   }
+  .artical{
+    background-color: var(--card-background-color);
+  }
+  .next{
+    background-color: var(--card-background-color);
+  }
+  
 }

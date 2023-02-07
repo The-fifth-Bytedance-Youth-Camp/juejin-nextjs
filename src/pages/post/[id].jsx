@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import style from './index.module.scss';
 import Article from '@/components/post/article';
 import Sidebar from '@/components/post/sidebar';
@@ -32,7 +32,7 @@ const Post = ({ title, cover, content, category, tags, author, avatar, time, rea
 					<Article theme={ theme } title={ title } cover={ cover }
 									 content={ content } category={ category } tags={ tags }
 									 render={ () => <Author name={ author } avatar={ avatar } time={ time } readCount={ readCount }/> }/>
-					<Sidebar  content={ content } />
+					<Sidebar content={ content }/>
 				</div>
 				{
 					screenWidth >= 960 || isScrolling ?

@@ -9,36 +9,38 @@ import useScrolling from '@/utils/hooks/useScrolling';
 
 import { FloatButton } from 'antd';
 import BackTop from '@/components/post/backTopIcon';
-import FeedBack from '@/components/post/feedBack';
+import ToggleTheme from '@/components/post/toggleTheme';
+import useTheme from '@/utils/hooks/useTheme';
+
 const { Group } = FloatButton;
 
 const Home = ({ navList, userList, bannerList }) => {
 	const screenWidth = useScreenWidth();
 	const isScrolling = useScrolling();
-	
+	const { theme, changeTheme } = useTheme();
+
 	return (
 		<div className={ style.Home }>
 			<div className={ style.header }>
 				<Navigation navList={ navList }/>
 			</div>
 			<div className={ style.content }>
-				<div className={ style.post_list } style={screenWidth<=960?{ width:screenWidth }:{}}>
+				<div className={ style.post_list } style={ screenWidth <= 960 ? { width: screenWidth } : {} }>
 					<Chapter/>
 				</div>
 				<div className={ style.aside }>
-					<Banner bannerList={bannerList}  />
-					<Author userList={userList}/>
+					<Banner bannerList={ bannerList }/>
+					<Author userList={ userList }/>
 				</div>
 				{
 					screenWidth >= 960 || isScrolling ?
 						<Group>
 							<BackTop/>
-							<FeedBack/>
+							<ToggleTheme theme={ theme } changeTheme={ changeTheme }/>
 						</Group>
 						: null
 				}
 			</div>
-
 		</div>
 	);
 };
@@ -85,7 +87,7 @@ export async function getServerSideProps() {
 			mouse: true,
 		},
 	];
-	
+
 	return {
 		props: { navList, userList, bannerList },
 	};

@@ -5,7 +5,6 @@ import '@/assets/styles/init.css';
 import '@/assets/styles/markdown/github-markdown.scss';
 import '@/assets/styles/theme/light.scss';
 import '@/assets/styles/theme/dark.scss';
-//import '@/assets/styles/header.scss';
 import Header from '@/components/home/header';
 
 const theme = {
@@ -31,7 +30,7 @@ export default function App({ Component, pageProps }) {
 	}, []);
 	return (
 		<ConfigProvider theme={ theme }>
-			<Header menuList={menuList} />
+			<Header menuList={ menuList }/>
 			<Component { ...pageProps }/>
 		</ConfigProvider>
 	);

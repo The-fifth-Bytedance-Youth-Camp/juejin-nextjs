@@ -7,9 +7,11 @@ import Author from '@/components/home/author';
 import style from './index.module.scss';
 import useScreenWidth from '@/utils/hooks/useScreenWidth';
 import FloatBtn from '@/components/floatBtn';
+import useTheme from '@/utils/hooks/useTheme';
 
 const Home = ({ navList, userList, bannerList }) => {
 	const screenWidth = useScreenWidth();
+	const { theme, changeTheme } = useTheme();
 	return (
 		<Fragment>
 			<Helmet>
@@ -31,7 +33,7 @@ const Home = ({ navList, userList, bannerList }) => {
 						<Banner bannerList={ bannerList }/>
 						<Author userList={ userList }/>
 					</div>
-					<FloatBtn/>
+					<FloatBtn theme={ theme } changeTheme={ changeTheme }/>
 				</div>
 			</div>
 		</Fragment>

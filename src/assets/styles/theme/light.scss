@@ -1,8 +1,11 @@
 html[data-theme="light"] {
+  // 字体颜色
   --secondary-color: #515767;
+  // 背景色
   --primary-background-color: #f4f5f5;
   --secondary-background-color: #ffffff;
-  --message-notice-color: rgba(0, 0, 0, 0.88);
-  --code-block-background-color: #f8f8f8;
   --hover-background-color: #fafafa;
+  --code-block-background-color: #f8f8f8;
+  // 弹窗样式
+  --message-notice-color: rgba(0, 0, 0, 0.88);
 }

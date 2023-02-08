@@ -35,15 +35,9 @@ body, html {
 
 /* 悬浮按钮 */
 :where(.css-dev-only-do-not-override-1i9hnpv).ant-float-btn-default {
-    border: var(--float-btn-border);
     background-color: var(--secondary-background-color);
 }
 
 :where(.css-dev-only-do-not-override-1i9hnpv).ant-float-btn-default .ant-float-btn-body {
     background-color: var(--secondary-background-color);
-}
-
-/* markdown nav */
-.markdown-navigation .title-anchor:hover, .markdown-navigation .title-anchor.active {
-    background-color: transparent !important;
 }

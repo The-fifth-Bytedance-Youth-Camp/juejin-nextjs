@@ -1,12 +1,16 @@
 html[data-theme="dark"] {
+  // 字体颜色
   --secondary-color: #c9d1d9;
+  // 背景色
   --primary-background-color: #22272e;
   --secondary-background-color: #2d333b;
+  // 鼠标悬浮背景颜色
+  --hover-background-color: rgba(255, 255, 255, 0.05);
+  // 代码块背景色
+  --code-block-background-color: #1e1f22;
+  // 弹窗样式
   --message-notice-color: #c9d1d9;
   --message-notice-border: 2px rgba(255, 255, 255, 0.05) solid;
-  --float-btn-border: 2px rgba(255, 255, 255, .05) solid;
-  --code-block-background-color: #1e1f22;
-  --hover-background-color: rgba(255, 255, 255, 0.05);
 
   img {
     filter: brightness(.68);

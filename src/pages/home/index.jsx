@@ -7,19 +7,22 @@ import Author from '@/components/home/author';
 import style from './index.module.scss';
 import useScreenWidth from '@/utils/hooks/useScreenWidth';
 import FloatBtn from '@/components/floatBtn';
+import useTheme from '@/utils/hooks/useTheme';
 
 const Home = ({ navList, userList, bannerList }) => {
+	const { theme, changeTheme } = useTheme();
 	const screenWidth = useScreenWidth();
 	return (
 		<Fragment>
 			<Helmet>
 				<title>稀土掘金</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"></meta>
 				<meta name="description"
 							content="掘金是面向全球中文开发者的技术内容分享与交流平台。
 							我们通过技术文章、沸点、课程、直播等产品和服务，打造一个激发开发者创作灵感，激励开发者沉淀分享，陪伴开发者成长的综合类技术社区。"/>
 				<meta name="keywords" content="掘金,稀土,Vue.js,前端面试题,Kotlin,ReactNative,Python"/>
 			</Helmet>
-			<div className={ style.Home }>
+			<div className={ style.Home }>	
 				<div className={ style.header }>
 					<Navigation navList={ navList }/>
 				</div>
@@ -31,8 +34,8 @@ const Home = ({ navList, userList, bannerList }) => {
 						<Banner bannerList={ bannerList }/>
 						<Author userList={ userList }/>
 					</div>
-					<FloatBtn/>
-				</div>
+					<FloatBtn theme={ theme } changeTheme={ changeTheme }/>
+				</div>	
 			</div>
 		</Fragment>
 	);

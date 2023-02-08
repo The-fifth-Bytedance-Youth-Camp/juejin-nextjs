@@ -1,6 +1,5 @@
 import React from 'react';
 import { FloatButton } from 'antd';
-import useTheme from '@/utils/hooks/useTheme';
 
 const moon = <svg xmlns="http://www.w3.org/2000/svg" fill="#FFEF61FF" viewBox="0 0 24 24" strokeWidth="1.5"
 									stroke="currentColor" className="w-6 h-6">

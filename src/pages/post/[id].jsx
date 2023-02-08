@@ -5,20 +5,12 @@ import Sidebar from '@/components/post/sidebar';
 import { Helmet } from 'react-helmet';
 import Author from '@/components/post/author';
 import { copyright } from '@/assets/js/copyright';
-import { FloatButton } from 'antd';
-import BackTop from '@/components/post/backTopIcon';
-import ToggleTheme from '@/components/post/toggleTheme';
-import useScreenWidth from '@/utils/hooks/useScreenWidth';
-import useScrolling from '@/utils/hooks/useScrolling';
 import useTheme from '@/utils/hooks/useTheme';
-
-const { Group } = FloatButton;
+import FloatBtn from '@/components/floatBtn';
 
 const Post = ({ title, cover, content, category, tags, author, avatar, time, readCount }) => {
 	const { theme, changeTheme } = useTheme();
 	useEffect(() => { copyright(author); }, [ author ]);
-	const screenWidth = useScreenWidth();
-	const isScrolling = useScrolling();
 	return (
 		<Fragment>
 			<Helmet>
@@ -34,14 +26,7 @@ const Post = ({ title, cover, content, category, tags, author, avatar, time, rea
 									 render={ () => <Author name={ author } avatar={ avatar } time={ time } readCount={ readCount }/> }/>
 					<Sidebar content={ content }/>
 				</div>
-				{
-					screenWidth >= 960 || isScrolling ?
-						<Group>
-							<BackTop/>
-							<ToggleTheme theme={ theme } changeTheme={ changeTheme }/>
-						</Group>
-						: null
-				}
+				<FloatBtn theme={ theme } changeTheme={ changeTheme }/>
 			</div>
 		</Fragment>
 	);

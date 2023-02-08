@@ -5,14 +5,16 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 body {
     width: fit-content;
     height: fit-content;
 }
-
-/*::-webkit-scrollbar {*/
-/*    display: none;*/
-/*}*/
 
 body, html {
     -webkit-font-smoothing: unset !important;
@@ -39,4 +41,9 @@ body, html {
 
 :where(.css-dev-only-do-not-override-1i9hnpv).ant-float-btn-default .ant-float-btn-body {
     background-color: var(--secondary-background-color);
+}
+
+/* markdown nav */
+.markdown-navigation .title-anchor:hover, .markdown-navigation .title-anchor.active {
+    background-color: transparent !important;
 }

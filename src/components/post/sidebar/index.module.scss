@@ -19,25 +19,31 @@
   & > * {
     margin-bottom: 2rem;
   }
-  .related{
+
+  .related {
     line-height: 200%;
   }
-  .related:hover{
+
+  .related:hover {
     color: skyblue;
   }
-  .extra{
+
+  .extra {
     display: inline-block;
   }
-  .like{
-    color:#8a919f;
-    float: left;
-  }
-  .comment{
+
+  .like {
     color: #8a919f;
     float: left;
   }
-  .menuNav{
+
+  .comment {
+    color: #8a919f;
+    float: left;
+  }
+
+  .menuNav {
     position: sticky;
-    top: 0px;
+    top: 20px;
   }
 }

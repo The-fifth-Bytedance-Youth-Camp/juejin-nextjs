@@ -10,7 +10,7 @@ function useIsScrolling() {
 			setIsScrolling(true);
 			timeoutIdRef.current = setTimeout(() => {
 				setIsScrolling(false);
-			}, 800);
+			}, 1500);
 		};
 
 		window.addEventListener('scroll', handleScroll);

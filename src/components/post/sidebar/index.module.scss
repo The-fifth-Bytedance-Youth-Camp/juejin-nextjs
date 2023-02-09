@@ -18,34 +18,111 @@
   & > * {
     margin-bottom: 2rem;
   }
-  .related{
-    line-height: 200%;
+  .relative{
+    width: 300px;
+    background-color: #ffffff;
   }
-  .related:hover{
-    color: skyblue;
+  .title{
+    font-size: 16px;
+    padding: 16px 0;
+    margin: 0 20px;
+    color: #1d2129;
+    line-height: 22px;
+    font-weight: 500;
+    border-bottom: 1px solid #e4e6eb;
   }
-  .extra{
+  .entry_list{
+    padding: 8px 0 16px;
+  }
+  .item{
+    display: block;
+    padding: 8px 20px;
+  }
+  a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #909090;
+    background-color: transparent;
+  }
+  a,button,input{
+    margin: initial;
+  }
+  .entry_title{
+    line-height: 22px;
+    font-size: 1.66rem;
+    font-weight: 400;
+    color: #252933;
+  }
+  .entry_title:hover{
+    color:#1171ee;
+  }
+  .entry_metabox{
+    margin-top: 4px;
+  }
+  .entry_meta{
     display: inline-block;
-  }
-  .like{
-    color:#8a919f;
-    float: left;
-    background-color: var(--card-background-color);
-  }
-  .comment{
+    font-size: 1.167rem;
+    line-height: 22px;
     color: #8a919f;
-    float: left;
+    font-weight: 400;
   }
-  .menuNav{
-    position: sticky;
-    top: 0px;
-    background-color: var(--card-background-color);
+  .next_artical{
+    background: #fff;
+    border-radius: 4px;
+    max-height: 130px;
+    position: relative;
+    display: block;
+  }
+  .next_header{
+    display: flex;
+    justify-content: space-between;
+  }
+  .next_title{
+    font-weight: 400;
+    padding: 1.33rem 0 12px;
+    margin: 0 20px;
+    font-size: 16px;
+    line-height: 2rem;
+    color: #1d2129;
+  }
+  .list_icon{
+    display: inline-block;
+    height: 24px;
+    padding: 4px 6px;
+    margin: 12px 10px;
+    transition: transform .5s;
+    fill: #000;
+  }
+  .list_icon:hover{
+    cursor: pointer;
+    background-color: #f2f3f5;
+    border-radius: 4px;
+  }
+  .title_hr{
+    position: absolute;
+    height: 1px;
+    top:50px;
+    left: 20px;
+    width: 20px;
+    background-color: #e4e6eb;
+    border: 0;
+  }
+  hr{
+    box-sizing: content-box;
+    overflow: visible;
+  }
+  .next_content{
+    padding: 0 0 1.667rem;
   }
   .artical{
-    background-color: var(--card-background-color);
+    font-size: 14px;
+    line-height: 22px;
+    padding: 12px 1.667rem 0;
+    color: #515767;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
-  .next{
-    background-color: var(--card-background-color);
-  }
-  
 }

@@ -98,7 +98,7 @@ export async function getServerSideProps({ query: { id } }) {
 	const category = '前端';
 	const avatar = 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-64a7a9ec-6536-4aec-a1c6-f76a1aa71ccf/d3839a7d-a7bb-4bdf-824d-b95e6da29c3f.png';
 	return {
-		props: { title, cover, content, category, tags, author, avatar, time, readCount, },
+		props: { title, cover, content, category, tags, author, avatar, time, readCount },
 	};
 }
 

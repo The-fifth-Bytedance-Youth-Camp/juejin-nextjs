@@ -40,3 +40,13 @@ body, html {
 :where(.css-dev-only-do-not-override-1i9hnpv).ant-float-btn-default .ant-float-btn-body {
     background-color: var(--secondary-background-color);
 }
+
+/* Markdown目录选中背景色 */
+.markdown-navigation .title-anchor:hover,.markdown-navigation .title-anchor.active {
+    background-color: #474e57 !important;
+}
+
+/* 目录字体颜色 */
+.markdown-navigation .title-level1 ,.markdown-navigation .title-level2 {
+    color: rgba(0, 0, 0, 0.88) !important;
+}

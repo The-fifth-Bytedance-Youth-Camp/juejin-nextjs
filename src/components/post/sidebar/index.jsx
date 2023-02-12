@@ -4,9 +4,20 @@ import listLogo from '/src/assets/svg/list.svg';
 
 
 
-const Sidebar = ({ content }) => {
+const Sidebar = ({ content, avatar, name }) => {
 	return (
 		<div className={ style.Sidebar } >
+			<div className={ style.author_list}>
+				<a href="" className={ style.user_item }>
+					<img className={ style.author_img } src={ avatar } alt={ name } loading='lazy' />
+					<div className={ style.info_box}>
+						<a className={ style.username } href="">
+						<span className={ style.name } >{ name }</span>
+						</a>
+						<div className={ style.position } title='前端'>前端</div>
+					</div>
+				</a>
+			</div>
 			<div className={ style.relative }> 
 				<div className={ style.title }>
 					相关文章
@@ -43,7 +54,7 @@ const Sidebar = ({ content }) => {
 								<div className={ style.entry_meta }>777评论</div>
 							</div>
 						</a>
-					</div>
+					</div> 
 				</div>
 			</div>
 			<div className={ style.next_artical }>

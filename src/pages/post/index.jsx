@@ -33,7 +33,7 @@ const Post = ({ title, cover, content, category, tags, author, avatar, time, rea
 					<Article theme={ theme } title={ title } cover={ cover }
 									 content={ content } category={ category } tags={ tags }
 									 render={ () => <Author name={ author } avatar={ avatar } time={ time } readCount={ readCount }/> }/>
-					<Sidebar  content={ content } />
+					<Sidebar  content={ content } avatar={ avatar } name={ author }  />
 				</div>
 				{
 					screenWidth >= 960 || isScrolling ?

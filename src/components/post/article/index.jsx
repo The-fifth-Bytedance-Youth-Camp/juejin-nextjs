@@ -8,18 +8,13 @@ import { Image } from 'antd';
 import CodeBlock from '@/components/post/codeBlock';
 import TagList from '../tagList';
 
-const imgPreview = { mask: null };
-
-const Article = ({ theme, title, cover, content, render = () => {} }) => {
+const Article = ({ title, cover, content, render = () => {} }) => {
 	const components = {
 		a: ({ ...props }) => <a { ...props } rel="canonical" target="_blank"/>,
-		code: ({ ...props }) => {
-			return <code style={ { color: 'var(--customize-code-line-colors)' } }>{ props.children }</code>;
-		},
-		pre({ children }) {
+		pre: ({ children }) => {
 			const language = children[0].props.className?.replace('language-', '') || 'text';
 			const value = children[0].props.children[0];
-			return <CodeBlock theme={ theme } language={ language } code={ value }/>;
+			return <CodeBlock language={ language } code={ value }/>;
 		},
 	};
 	return (
@@ -28,7 +23,7 @@ const Article = ({ theme, title, cover, content, render = () => {} }) => {
 			{ render() }
 			{ cover ?
 				<div style={ { marginTop: '20px' } }>
-					<Image placeholder preview={ imgPreview }
+					<Image placeholder preview={ { mask: null } }
 								 width="100%" src={ cover }
 								 alt={ `${ title } - 封面` }/>
 				</div>
@@ -39,7 +34,7 @@ const Article = ({ theme, title, cover, content, render = () => {} }) => {
 										 remarkPlugins={ [ [ remarkGfm, { singleTilde: false }, remarkMath ] ] }>
 				{ content }
 			</ReactMarkdown>
-			<TagList></TagList>
+			<TagList/>
 		</div>
 	);
 };

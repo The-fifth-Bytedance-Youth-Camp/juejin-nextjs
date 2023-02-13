@@ -2,7 +2,6 @@ import { ConfigProvider } from 'antd';
 import { useEffect } from 'react';
 import { rem } from '@/assets/js/rem';
 import '@/assets/styles/init.css';
-import '@/assets/styles/markdown/github-markdown.scss';
 import '@/assets/styles/theme/light.scss';
 import '@/assets/styles/theme/dark.scss';
 import Header from '@/components/home/header';

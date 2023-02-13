@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { message } from 'antd';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { getHighlighter } from '@/assets/styles/markdown/getHighlighter';
+import hljs from 'highlight.js';
 
 const copyCodeStyle = {
 	fontSize: '12px',
@@ -13,14 +12,16 @@ const copyCodeStyle = {
 	userSelect: 'none',
 };
 
-const CodeBlock = ({ theme, code = '', language = 'text' }) => {
-	const [ currentTheme, setCurrentTheme ] = useState(theme);
-	useEffect(() => {
-		setCurrentTheme(theme);
-	}, [ theme ]);
+const CodeBlock = ({ code = '', language = 'text' }) => {
 	const [ messageApi, contextHolder ] = message.useMessage();
-	const copySuccess = () => {
-		messageApi.open({
+	const [ mounted, setMounted ] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	const copySuccess = async () => {
+		await messageApi.open({
 			type: 'success',
 			content: '代码复制成功',
 			style: {
@@ -29,10 +30,22 @@ const CodeBlock = ({ theme, code = '', language = 'text' }) => {
 			},
 		});
 	};
+	const codeHighlight = (code) => {
+		let codeHtml = code.replaceAll('\t', '  ');
+		try {
+			if (mounted && hljs.getLanguage(language)) {
+				codeHtml = hljs.highlight(codeHtml, { language }).value;
+			}
+		} catch (_) { }
+		return (
+			<pre>
+				<code dangerouslySetInnerHTML={ { __html: codeHtml } }/>
+			</pre>
+		);
+	};
 	return (
 		<div style={ { position: 'relative' } }>
-			<SyntaxHighlighter language={ language }
-												 style={ getHighlighter(currentTheme) }>{ code }</SyntaxHighlighter>
+			{ codeHighlight(code) }
 			{ contextHolder }
 			<CopyToClipboard text={ code }>
 				<span style={ copyCodeStyle } onClick={ copySuccess }>

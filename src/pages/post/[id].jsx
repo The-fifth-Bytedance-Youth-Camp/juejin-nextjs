@@ -8,7 +8,19 @@ import { copyright } from '@/assets/js/copyright';
 import useTheme from '@/utils/hooks/useTheme';
 import FloatBtn from '@/components/floatBtn';
 
-const Post = ({ title, cover, content, category, tags, author, avatar, time, readCount }) => {
+const Post = ({
+								title,
+								cover,
+								content,
+								category,
+								tags,
+								author,
+								avatar,
+								time,
+								readCount,
+								theme: page_theme,
+								codeStyle,
+							}) => {
 	const { theme, changeTheme } = useTheme();
 	useEffect(() => { copyright(author); }, [ author ]);
 	return (
@@ -18,6 +30,10 @@ const Post = ({ title, cover, content, category, tags, author, avatar, time, rea
 				<meta name="keywords" content={ tags.join(',') }/>
 				<meta name="author" content={ author }/>
 				<meta name="description" content={ content.substring(0, 100) }/>
+				<link rel="stylesheet"
+							href={ `http://localhost:3100/theme/${ theme === 'light' ? page_theme : 'github-dark' }.css` }/>
+				<link rel="stylesheet"
+							href={ `http://localhost:3100/codeStyle/${ theme === 'light' ? codeStyle : 'atom-one-dark' }.css` }/>
 			</Helmet>
 			<div className={ style.Post }>
 				<div className={ style.main }>
@@ -82,8 +98,10 @@ export async function getServerSideProps({ query: { id } }) {
 	// const cover = null;
 	const category = '前端';
 	const avatar = 'https://vkceyugu.cdn.bspapp.com/VKCEYUGU-64a7a9ec-6536-4aec-a1c6-f76a1aa71ccf/d3839a7d-a7bb-4bdf-824d-b95e6da29c3f.png';
+	const theme = 'juejin';
+	const codeStyle = 'atom-one-light';
 	return {
-		props: { title, cover, content, category, tags, author, avatar, time, readCount },
+		props: { title, cover, content, category, tags, author, avatar, time, readCount, theme, codeStyle },
 	};
 }
 

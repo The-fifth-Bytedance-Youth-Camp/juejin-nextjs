@@ -25,6 +25,7 @@ const Post = ({ title, cover, content, category, tags, author, avatar, time, rea
 									 content={ content } category={ category } tags={ tags }
 									 render={ () => <Author name={ author } avatar={ avatar } time={ time } readCount={ readCount }/> }/>
 					<Sidebar content={ content }/>
+					<Sidebar  content={ content } avatar={ avatar } name={ author }  />
 				</div>
 				<FloatBtn theme={ theme } changeTheme={ changeTheme }/>
 			</div>

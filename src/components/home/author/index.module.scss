@@ -3,7 +3,7 @@
   //position: absolute;
   //right: 33rem;
   //top: 100rem;
-  background-color: #ffffff;
+  background-color:var(--secondary-background-color);
 }
 
 .header {
@@ -11,7 +11,7 @@
   border-bottom: 1px solid hsla(0, 0%, 59.2%, .1);
   font-size: 14px;
   line-height: 1.29;
-  color: #333;
+  color: var(--message-notice-color);
 }
 
 .user_list {
@@ -22,7 +22,7 @@
 }
 
 .user_list:hover {
-  background-color: #f2f3f5;
+  background-color: var(--hover-background-color);
 }
 
 .avatar {
@@ -50,7 +50,7 @@
   white-space: nowrap;
   font-size: 14px;
   font-weight: 400;
-  color: #333;
+  color: var(--message-notice-color);
 }
 
 .user_position {

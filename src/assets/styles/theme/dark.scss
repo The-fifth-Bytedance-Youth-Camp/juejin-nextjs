@@ -7,6 +7,10 @@ html[data-theme="dark"] {
   --float-btn-border: 2px rgba(255, 255, 255, .05) solid;
   --code-block-background-color: #1e1f22;
   --card-background-color: rgb(45, 51, 59);
+  --category-background: rgb(30, 31, 34);
+  --tag-background: rgb(30, 31, 34);
+  --tag-color: #fff;
+  --category-color: #fff;
   img {
     filter: brightness(.68);
   }

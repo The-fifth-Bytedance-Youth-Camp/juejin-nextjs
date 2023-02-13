@@ -65,17 +65,20 @@
       .fonts {
         overflow: hidden;
         white-space: nowrap;
-        text-overflow: ellipsis;
         .title {
           height: 50px;
           line-height: 50px;
           font-weight: 700;
           font-size: 15px;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .font {
           font-size: 13px;
           color: #86909c;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .icon {
@@ -87,6 +90,9 @@
           }
         }
 
+        .view{
+          color: var(--view-color);
+        }
         .num{
           font-size: 13px;
           margin-left: -6px;

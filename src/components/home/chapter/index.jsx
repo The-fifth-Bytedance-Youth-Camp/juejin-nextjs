@@ -22,9 +22,9 @@ const Index = () => {
 				<div className={ styles.introduce }>
 					<div className={ styles.fonts }>
 						<div className={ styles.title }>创意投稿大赛来袭，啊是的哈哈的哈哈哈大厦大厦和</div>
-						<div className={ styles.font }>又是一年春暖花开</div>
+						<div className={ styles.font }>又是一年春暖花开。又是一年春暖花开。又是一年春暖花开。又是一年春暖花开。</div>
 						<div className={ styles.icon }>
-							<span><EyeOutlined style={{ color: '#4e5969' }}/><span className={styles.num}>15w</span></span>
+							<span><EyeOutlined style={{ color: 'var(--view-color)' }}/><span className={styles.num}>15w</span></span>
 							<span className={styles.hov}><LikeOutlined/><span className={styles.num}>18</span></span>
 							<span className={styles.hov}><CommentOutlined/><span className={styles.num}>88</span></span>
 						</div>

@@ -11,9 +11,9 @@ const Sidebar = ({ content, avatar, name }) => {
 				<a href="" className={ style.user_item }>
 					<img className={ style.author_img } src={ avatar } alt={ name } loading='lazy' />
 					<div className={ style.info_box}>
-						<a className={ style.username } href="">
+						<div className={ style.username } href="">
 						<span className={ style.name } >{ name }</span>
-						</a>
+						</div>
 						<div className={ style.position } title='前端'>前端</div>
 					</div>
 				</a>

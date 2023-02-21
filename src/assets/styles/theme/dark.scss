@@ -1,15 +1,26 @@
 html[data-theme="dark"] {
-  --secondary-color: #c9d1d9;
+  // 字体颜色
+  --primary-color: #c9d1d9;
+  // 背景色
   --primary-background-color: #22272e;
   --secondary-background-color: #2d333b;
+  // 鼠标悬浮背景颜色
+  --hover-background-color: rgba(255, 255, 255, 0.05);
+  // 代码块背景色
+  --code-block-background-color: #1e1f22;
+  // 弹窗样式
   --message-notice-color: #c9d1d9;
   --message-notice-border: 2px rgba(255, 255, 255, 0.05) solid;
-  --float-btn-border: 2px rgba(255, 255, 255, .05) solid;
-  --code-block-background-color: #1e1f22;
-  --hover-background-color: rgba(255, 255, 255, 0.05);
-  --view-color: #c9d1d9;
+  // 边框
+  --primary-border-color: #ffffff19;
+
+  --card-background-color: rgb(45, 51, 59);
+  --category-background: rgb(30, 31, 34);
+  --tag-background: rgb(30, 31, 34);
+  --tag-color: #fff;
+  --category-color: #fff;
   --adve-color: rgba(0, 0, 0, .4);
-  --adve-border-color: rgb(255,255,255,0.7);
+  --adve-border-color: #c9d1d9;
 
   img {
     filter: brightness(.68);

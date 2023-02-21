@@ -1,14 +1,16 @@
 .tag {
+  margin-top: 28px;
+
   .category {
     display: inline-block;
     cursor: pointer;
-    color: #515767;
+    color: var(--category-color);
     font-size: 1rem;
     width: auto;
     height: auto;
     line-height: 32px;
     padding: 0 10px 0 10px;
-    background: #f2f3f5;
+    background: var(--category-background);
     border-radius: 5px;
     margin: 0 2.67rem 0 8px;
   }
@@ -16,14 +18,14 @@
   .tagName {
     display: inline-block;
     cursor: pointer;
-    color: #1e80ff;
+    color: var(--tag-color);
     font-size: 14px;
     margin: 0 8px;
     width: auto;
     height: auto;
     line-height: 32px;
     padding: 0 10px 0 10px;
-    background: #eaf2ff;
+    background: var(--tag-background);
     border-radius: 5px;
   }
 }

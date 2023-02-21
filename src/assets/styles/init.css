@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: 0;
+}
+
 html {
     width: 100vw;
     overflow-x: hidden;
@@ -21,9 +25,9 @@ body, html {
     font-family: -apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial !important;
 }
 
-/* 代码块 */
-.markdown-body pre {
-    background-color: var(--code-block-background-color) !important;
+/* Markdown 目录 */
+hr.sidebar_title_hr__uYwrb {
+    display: none;
 }
 
 /* 复制成功的弹窗 */
@@ -34,16 +38,20 @@ body, html {
 }
 
 /* 悬浮按钮 */
-:where(.css-dev-only-do-not-override-1i9hnpv).ant-float-btn-default {
-    border: var(--float-btn-border);
+.ant-float-btn-default {
     background-color: var(--secondary-background-color);
 }
 
-:where(.css-dev-only-do-not-override-1i9hnpv).ant-float-btn-default .ant-float-btn-body {
+.ant-float-btn-default .ant-float-btn-body {
     background-color: var(--secondary-background-color);
 }
 
-/* markdown nav */
-.markdown-navigation .title-anchor:hover, .markdown-navigation .title-anchor.active {
-    background-color: transparent !important;
-}
+/* Markdown目录选中背景色 */
+/*.markdown-navigation .title-anchor:hover,.markdown-navigation .title-anchor.active {*/
+/*    background-color: #474e57 !important;*/
+/*}*/
+
+/* 目录字体颜色 */
+/*.markdown-navigation .title-level1, .markdown-navigation .title-level2 {*/
+/*    color: rgba(0, 0, 0, 0.88) !important;*/
+/*}*/

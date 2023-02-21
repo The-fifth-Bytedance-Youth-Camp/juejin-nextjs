@@ -4,6 +4,7 @@ import ToggleTheme from '@/components/floatBtn/toggleTheme';
 import useScreenWidth from '@/utils/hooks/useScreenWidth';
 import useScrolling from './hooks/useScrolling';
 import { FloatButton } from 'antd';
+import style from './index.module.scss';
 
 const { Group } = FloatButton;
 const FloatBtn = ({ theme, changeTheme }) => {
@@ -42,11 +43,11 @@ const FloatBtn = ({ theme, changeTheme }) => {
 	}, [ opacity ]);
 
 	return (
-		<div style={ {
-			opacity: opacity ? 1 : 0,
-			transition: 'opacity .5s',
-			display: display ? 'block' : 'none',
-		} }>
+		<div className={ style.container }
+				 style={ {
+					 opacity: opacity ? 1 : 0,
+					 display: display ? 'block' : 'none',
+				 } }>
 			<Group>
 				<BackTop/>
 				<ToggleTheme theme={ theme } changeTheme={ changeTheme }/>

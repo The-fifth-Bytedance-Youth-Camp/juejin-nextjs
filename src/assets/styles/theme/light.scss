@@ -1,11 +1,23 @@
 html[data-theme="light"] {
-  --secondary-color: #515767;
+  // 字体颜色
+  --primary-color: #252933;
+  // 背景色
   --primary-background-color: #f4f5f5;
   --secondary-background-color: #ffffff;
-  --message-notice-color: rgba(0, 0, 0, 0.88);
-  --code-block-background-color: #f8f8f8;
   --hover-background-color: #fafafa;
+  --code-block-background-color: #f8f8f8;
+  // 弹窗样式
+  --message-notice-color: rgba(0, 0, 0, 0.88);
+  // 边框
+  --primary-border-color: #e4e6eb;
+
   --view-color: #4e5969;
   --adve-color: rgba(0, 0, 0, .2);
   --adve-border-color: #fff;
+
+  --card-background-color: #ffffff;
+  --category-background:  #f2f3f5;
+  --tag-background: #eaf2ff;
+  --tag-color: #1e80ff;
+  --category-color: #515767;
 }

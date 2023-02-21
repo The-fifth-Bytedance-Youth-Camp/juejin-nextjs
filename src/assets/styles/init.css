@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: 0;
+}
+
 html {
     width: 100vw;
     overflow-x: hidden;
@@ -19,6 +23,11 @@ body {
 body, html {
     -webkit-font-smoothing: unset !important;
     font-family: -apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial !important;
+}
+
+/* Markdown 目录 */
+hr.sidebar_title_hr__uYwrb {
+    display: none;
 }
 
 /* 复制成功的弹窗 */
@@ -38,11 +47,11 @@ body, html {
 }
 
 /* Markdown目录选中背景色 */
-.markdown-navigation .title-anchor:hover,.markdown-navigation .title-anchor.active {
-    background-color: #474e57 !important;
-}
+/*.markdown-navigation .title-anchor:hover,.markdown-navigation .title-anchor.active {*/
+/*    background-color: #474e57 !important;*/
+/*}*/
 
 /* 目录字体颜色 */
-.markdown-navigation .title-level1 ,.markdown-navigation .title-level2 {
-    color: rgba(0, 0, 0, 0.88) !important;
-}
+/*.markdown-navigation .title-level1, .markdown-navigation .title-level2 {*/
+/*    color: rgba(0, 0, 0, 0.88) !important;*/
+/*}*/

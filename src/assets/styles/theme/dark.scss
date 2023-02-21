@@ -1,6 +1,6 @@
 html[data-theme="dark"] {
   // 字体颜色
-  --secondary-color: #c9d1d9;
+  --primary-color: #c9d1d9;
   // 背景色
   --primary-background-color: #22272e;
   --secondary-background-color: #2d333b;
@@ -11,13 +11,15 @@ html[data-theme="dark"] {
   // 弹窗样式
   --message-notice-color: #c9d1d9;
   --message-notice-border: 2px rgba(255, 255, 255, 0.05) solid;
+  // 边框
+  --primary-border-color: #ffffff19;
 
-  --float-btn-border: 2px rgba(255, 255, 255, .05) solid;
   --card-background-color: rgb(45, 51, 59);
   --category-background: rgb(30, 31, 34);
   --tag-background: rgb(30, 31, 34);
   --tag-color: #fff;
   --category-color: #fff;
+
   img {
     filter: brightness(.68);
   }

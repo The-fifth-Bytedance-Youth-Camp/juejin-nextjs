@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { Image } from 'antd';
-import CodeBlock from '@/components/post/codeBlock';
+import CodeBlock from './codeBlock';
 import TagList from '../tagList';
 
 const Article = ({ title, cover, content, render = () => {} }) => {

@@ -1,10 +1,12 @@
 import { ConfigProvider } from 'antd';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { rem } from '@/assets/js/rem';
 import '@/assets/styles/init.css';
 import '@/assets/styles/theme/light.scss';
 import '@/assets/styles/theme/dark.scss';
-import Header from '@/components/home/header';
+import Header from '@/components/header';
+import '@/components/post/directory/directory.css';
+import { bffRequest } from '@/utils/request';
 
 const theme = {
 	token: {
@@ -13,24 +15,19 @@ const theme = {
 };
 
 export default function App({ Component, pageProps }) {
-	const menuList = [
-		{ id: 1, name: '首页', path: '/home', tag: '' },
-		{ id: 2, name: '沸点', path: '/pins', tag: '' },
-		{ id: 3, name: '课程', path: '/news', tag: '' },
-		{ id: 4, name: '直播', path: '/books', tag: '' },
-		{ id: 5, name: '活动', path: '/events', tag: '' },
-		{ id: 6, name: '竞赛', path: '/events', tag: '' },
-		{ id: 7, name: '商城', path: '/events', tag: '' },
-		{ id: 8, name: 'APP', path: '/events', tag: '邀请有礼' },
-		{ id: 9, name: '插件', path: '/events', tag: '' },
-	];
+	const [ headerList, setHeaderList ] = useState([]);
 	useEffect(() => {
 		rem(document, window);
+		(async () => {
+			const { headerList } = await bffRequest.get('/api/header');
+			setHeaderList(headerList);
+		})();
 	}, []);
 	return (
 		<ConfigProvider theme={ theme }>
-			<Header menuList={ menuList }/>
-			<Component { ...pageProps }/>
+			<Header menuList={ headerList }>
+				<Component { ...pageProps }/>
+			</Header>
 		</ConfigProvider>
 	);
 }

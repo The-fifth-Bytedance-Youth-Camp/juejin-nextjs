@@ -23,11 +23,11 @@
 
 .Post {
   min-height: 100vh;
-  background-color: var(--primary-background-color);
+
   .main {
     display: flex;
     justify-content: space-between;
-    padding: 2rem 0;
+    padding: 20px 0 40px;
     margin: 0 auto;
   }
 }

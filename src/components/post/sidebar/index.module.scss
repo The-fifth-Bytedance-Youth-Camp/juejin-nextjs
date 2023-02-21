@@ -16,24 +16,16 @@
   width: 300px;
 
   & > * {
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
+    background-color: var(--secondary-background-color);
   }
-  .author_list{
+
+  .author_list {
     margin-bottom: 20px;
     border-radius: 4px;
-    background: #fff;
     padding: 1.667rem;
   }
-  .author_img::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: inherit;
-    border-radius: inherit;
-  }
+
   .author_img {
     margin-right: 12px;
     width: 40px;
@@ -43,17 +35,19 @@
     user-select: none;
     -webkit-user-drag: none;
   }
-  .user_item{
-    margin-bottom: 1.4rem;
+
+  .user_item {
     display: flex;
     align-items: center;
   }
-  .info_box{
+
+  .info_box {
     flex: 1 1 auto;
     min-width: 0;
     margin-left: 1.3rem;
   }
-  .username{
+
+  .username {
     display: flex;
     align-items: center;
     font-size: 1.333rem;
@@ -64,7 +58,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .name{
+
+  .name {
     display: inline-block;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -73,119 +68,139 @@
     font-size: 15px;
     font-weight: 500;
     line-height: 2rem;
-    color: #252933;
+    color: var(--primary-color);
   }
-  .position{
+
+  .position {
     margin-top: 4px;
     font-size: 1.3rem;
-    color: #515767;
+    color: #515767FF;
     font-weight: 400;
     line-height: 22px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .relative{
+
+  .relative {
     width: 300px;
-    background-color: #ffffff;
   }
-  .title{
+
+  .title {
+    color: var(--primary-color);
     font-size: 16px;
     padding: 16px 0;
     margin: 0 20px;
-    color: #1d2129;
     line-height: 22px;
     font-weight: 500;
-    border-bottom: 1px solid #e4e6eb;
+    border-bottom: 1px solid var(--primary-border-color);
+    user-select: none;
   }
-  .entry_list{
+
+  .entry_list {
     padding: 8px 0 16px;
   }
-  .item{
+
+  .item {
     display: block;
     padding: 8px 20px;
   }
-  a{
+
+  a {
     text-decoration: none;
     cursor: pointer;
     color: #909090;
-    background-color: transparent;
   }
-  a,button,input{
+
+  a, button, input {
     margin: initial;
   }
-  .entry_title{
+
+  .entry_title {
     line-height: 22px;
     font-size: 1.66rem;
     font-weight: 400;
-    color: #252933;
+    color: var(--primary-color);
   }
-  .entry_title:hover{
-    color:#1171ee;
+
+  .entry_title:hover {
+    color: #1171ee;
   }
-  .entry_metabox{
+
+  .entry_metabox {
     margin-top: 4px;
   }
-  .entry_meta{
+
+  .entry_meta {
     display: inline-block;
     font-size: 1.167rem;
     line-height: 22px;
     color: #8a919f;
     font-weight: 400;
   }
-  .next_artical{
-    background: #fff;
+
+  .next_article {
+    background-color: var(--secondary-background-color);
     border-radius: 4px;
     max-height: 130px;
-    position: relative;
-    display: block;
   }
-  .next_header{
+
+  .next_header {
+    user-select: none;
+    padding-top: 12px;
+    box-sizing: content-box;
     display: flex;
     justify-content: space-between;
   }
-  .next_title{
+
+  .next_title {
     font-weight: 400;
     padding: 1.33rem 0 12px;
     margin: 0 20px;
     font-size: 16px;
     line-height: 2rem;
-    color: #1d2129;
+    color: var(--primary-color);
   }
-  .list_icon{
+
+  .list_icon {
     display: inline-block;
     height: 24px;
     padding: 4px 6px;
     margin: 12px 10px;
     transition: transform .5s;
-    fill: #000;
+    fill: var(--primary-color);
   }
-  .list_icon:hover{
+
+  .list_icon:hover {
     cursor: pointer;
-    background-color: #f2f3f5;
+    background-color: var(--primary-background-color);
     border-radius: 4px;
   }
-  .title_hr{
+
+  .title_hr {
     position: absolute;
     height: 1px;
-    top:50px;
+    top: 50px;
     left: 20px;
     width: 20px;
     background-color: #e4e6eb;
     border: 0;
   }
-  hr{
+
+  hr {
     box-sizing: content-box;
     overflow: visible;
   }
-  .next_content{
+
+  .next_content {
     padding: 0 0 1.667rem;
   }
-  .artical{
+
+  .article {
     font-size: 14px;
     line-height: 22px;
     padding: 12px 1.667rem 0;
-    color: #515767;
+    color: var(--primary-color);
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;

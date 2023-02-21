@@ -1,15 +1,11 @@
 .box {
-  /* background-color: rgb(235, 239, 243); */
   width: 240px;
-  //position: absolute;
-  //right: 33rem;
-  //top: 28rem;
 }
 
 .box_top {
   cursor: pointer;
   position: relative;
-  margin-top: 10px;
+  margin-bottom: 16px;
 }
 
 .close_btn {
@@ -53,9 +49,9 @@
 }
 
 .bottom {
-  margin: 10px 0;
+  margin-bottom: 16px;
   padding: 15px;
-  background-color: #fff;
+  background-color: var(--secondary-background-color);
   display: flex;
   cursor: pointer;
 }
@@ -68,7 +64,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
-  color: #1d2129;
+  color: var(--primary-color);
 }
 
 .desc {

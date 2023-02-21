@@ -1,20 +1,16 @@
 .Home {
   width: 100vw;
-  background-color: var(--primary-background-color);
-
-  .header {
-    height: 105px;
-    margin-bottom: 16px;
-  }
 
   .content {
     width: 960px;
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 20px auto 0;
+    padding-bottom: 40px;
 
     .post_list {
       width: 700px;
+      height: fit-content;
       background-color: var(--secondary-background-color);
       overflow: hidden;
     }
@@ -25,6 +21,8 @@
   }
 }
 
-@media screen and (max-width:960px){
-  .aside{display: none;}
+@media screen and (max-width: 960px) {
+  .aside {
+    display: none;
+  }
 }

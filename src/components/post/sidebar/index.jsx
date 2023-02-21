@@ -1,22 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import style from './index.module.scss';
 import Directory from '@/components/post/directory';
-import { bffRequest } from '@/utils/request';
 
 
-const Sidebar = ({ id, content, avatar, name, recommendList = [] }) => {
-	const [ nextPost, setNextPost ] = useState(null);
-
-	useEffect(() => {
-		(async () => {
-			const { next } = await bffRequest.get('/api/post/next', {
-				params: { id },
-			});
-			setNextPost(next);
-		})();
-	}, [ id ]);
-
-
+const Sidebar = ({ content, avatar, name, recommendList = [] }) => {
 	return (
 		<div className={ style.Sidebar }>
 			<div className={ style.author_list }>
@@ -37,13 +24,13 @@ const Sidebar = ({ id, content, avatar, name, recommendList = [] }) => {
 				<div>
 					<div className={ style.entry_list }>
 						{
-							recommendList.map(({ id, title }) =>
-								<a key={ id } href="" className={ style.item } title={ title }>
+							recommendList?.map(({ id, title, watch_num }) =>
+								<a key={ id } className={ style.item } title={ title }>
 									<div className={ style.entry_title }>
 										{ title }
 									</div>
 									<div className={ style.entry_metabox }>
-										<div className={ style.entry_meta }>77阅读</div>
+										<div className={ style.entry_meta }>{ watch_num } 阅读</div>
 									</div>
 								</a>,
 							)
@@ -54,7 +41,7 @@ const Sidebar = ({ id, content, avatar, name, recommendList = [] }) => {
 			<div style={ { position: 'sticky', top: '20px', backgroundColor: 'transparent' } }>
 				<Directory article={ content }/>
 				{
-					nextPost?.id && nextPost?.title ? <div className={ style.next_article }>
+					recommendList[0]?.id && recommendList[0]?.title ? <div className={ style.next_article }>
 						<div className={ style.next_header }>
 							<div className={ style.next_title }>下一篇</div>
 							<svg className={ style.list_icon } viewBox="0 0 1024 1024" version="1.1"
@@ -65,8 +52,8 @@ const Sidebar = ({ id, content, avatar, name, recommendList = [] }) => {
 						</div>
 						<hr className={ style.title_hr }/>
 						<div className={ style.next_content }>
-							<a href={ `/post/${ nextPost.id }` } target="_blank" rel="noreferrer"
-								 className={ style.article } title={ nextPost.title }>{ nextPost.title }</a>
+							<a href={ `/post/${ recommendList[0].id }` } target="_blank" rel="noreferrer"
+								 className={ style.article } title={ recommendList[0].title }>{ recommendList[0].title }</a>
 						</div>
 					</div> : null
 				}

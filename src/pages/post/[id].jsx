@@ -10,7 +10,6 @@ import FloatBtn from '@/components/floatBtn';
 import { bffRequest } from '@/utils/request';
 
 const Post = ({
-								id,
 								title,
 								cover,
 								brief,
@@ -20,7 +19,7 @@ const Post = ({
 								author,
 								avatar,
 								time,
-								readCount,
+								watchNum,
 								theme: page_theme,
 								codeStyle,
 								recommendList,
@@ -43,8 +42,8 @@ const Post = ({
 				<div className={ style.main }>
 					<Article theme={ theme } title={ title } cover={ cover }
 									 content={ content } category={ category } tags={ tags }
-									 render={ () => <Author name={ author } avatar={ avatar } time={ time } readCount={ readCount }/> }/>
-					<Sidebar id={ id } content={ content } avatar={ avatar } name={ author } recommendList={ recommendList }/>
+									 render={ () => <Author name={ author } avatar={ avatar } time={ time } readCount={ watchNum }/> }/>
+					<Sidebar content={ content } avatar={ avatar } name={ author } recommendList={ recommendList }/>
 				</div>
 				<FloatBtn theme={ theme } changeTheme={ changeTheme }/>
 			</div>
@@ -63,7 +62,7 @@ export async function getServerSideProps({ query: { id } }) {
 		author,
 		avatar,
 		time,
-		readCount,
+		watchNum,
 		theme,
 		codeStyle,
 		recommendList,
@@ -73,7 +72,6 @@ export async function getServerSideProps({ query: { id } }) {
 
 	return {
 		props: {
-			id,
 			title,
 			cover,
 			brief,
@@ -83,7 +81,7 @@ export async function getServerSideProps({ query: { id } }) {
 			author,
 			avatar,
 			time,
-			readCount,
+			watchNum,
 			theme,
 			codeStyle,
 			recommendList,

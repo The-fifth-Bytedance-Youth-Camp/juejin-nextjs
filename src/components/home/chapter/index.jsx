@@ -3,10 +3,12 @@ import styles from './index.module.scss';
 import { EyeOutlined, LikeOutlined, CommentOutlined } from '@ant-design/icons';
 import { bffRequest } from '@/utils/request';
 import { Skeleton } from 'antd';
+import useImage from '@/utils/hooks/useImage';
 
 const Index = ({ category }) => {
-	const [ sort, setSort ] = useState(1);
+	const [ sort, setSort ] = useState('RAND()');
 	const [ postList, setPostList ] = useState([]);
+	const { parseSrc } = useImage();
 
 	useEffect(() => {
 		(async () => {
@@ -20,14 +22,14 @@ const Index = ({ category }) => {
 	return (
 		<div className={ styles.wrapper }>
 			<div className={ styles.nav }>
-				<span className={ sort === 1 ? styles.fontChecked : styles.font }
-							onClick={ () => setSort(1) }>推荐</span>
+				<span className={ sort === 'RAND()' ? styles.fontChecked : styles.font }
+							onClick={ () => setSort('RAND()') }>推荐</span>
 				<span className={ styles.icon }>|</span>
-				<span className={ sort === 2 ? styles.fontChecked : styles.font }
-							onClick={ () => setSort(2) }>最新</span>
+				<span className={ sort === 'gmt_created' ? styles.fontChecked : styles.font }
+							onClick={ () => setSort('gmt_created') }>最新</span>
 				<span className={ styles.icon }>|</span>
-				<span className={ sort === 3 ? styles.fontChecked : styles.font }
-							onClick={ () => setSort(3) }>热榜</span>
+				<span className={ sort === 'watch_num' ? styles.fontChecked : styles.font }
+							onClick={ () => setSort('watch_num') }>热榜</span>
 			</div>
 			{
 				!postList?.length ?
@@ -52,9 +54,13 @@ const Index = ({ category }) => {
 										<span className={ styles.hov }><CommentOutlined/><span className={ styles.num }>xx</span></span>
 									</div>
 								</div>
-								<div className={ styles.imgContainer }>
-									<img src={ cover } alt={ `${ title }_封面` }/>
-								</div>
+								{
+									cover ?
+										<div className={ styles.imgContainer }>
+											<img src={ parseSrc(cover) } alt={ `${ title }_封面` }/>
+										</div>
+										: null
+								}
 							</div>
 						</div>,
 					)

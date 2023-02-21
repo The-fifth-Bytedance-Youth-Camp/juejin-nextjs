@@ -7,8 +7,10 @@ import rehypeKatex from 'rehype-katex';
 import { Image } from 'antd';
 import CodeBlock from './codeBlock';
 import TagList from '../tagList';
+import useImage from '@/utils/hooks/useImage';
 
-const Article = ({ title, cover, content, render = () => {} }) => {
+const Article = ({ title, cover, content, category, tags, render = () => {} }) => {
+	const { parseSrc } = useImage();
 	const components = {
 		a: ({ ...props }) => <a { ...props } rel="canonical" target="_blank"/>,
 		pre: ({ children }) => {
@@ -24,7 +26,7 @@ const Article = ({ title, cover, content, render = () => {} }) => {
 			{ cover ?
 				<div style={ { marginTop: '20px' } }>
 					<Image placeholder preview={ { mask: null } }
-								 width="100%" src={ cover }
+								 width="100%" height={ 425 } style={ { objectFit: 'cover' } } src={ parseSrc(cover) }
 								 alt={ `${ title } - 封面` }/>
 				</div>
 				: null
@@ -34,7 +36,7 @@ const Article = ({ title, cover, content, render = () => {} }) => {
 										 remarkPlugins={ [ [ remarkGfm, { singleTilde: false }, remarkMath ] ] }>
 				{ content }
 			</ReactMarkdown>
-			<TagList/>
+			<TagList category={ category } tags={ tags }/>
 		</div>
 	);
 };

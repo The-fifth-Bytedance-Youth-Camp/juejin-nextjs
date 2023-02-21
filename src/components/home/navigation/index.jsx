@@ -7,7 +7,7 @@ const Navigation = ({ navList, children, onClick }) => {
 	const handleScroll = () => {
 		let scrollTop = document.documentElement.scrollTop;
 		const header = document.querySelector('div[class^="navigation"]');
-		if (scrollTop <= 500) {
+		if (scrollTop <= 170) {
 			header.className = `${ style.subMenu }`;
 		} else header.className = `${ style.subMenu }  ${ style.hide }`;
 	};

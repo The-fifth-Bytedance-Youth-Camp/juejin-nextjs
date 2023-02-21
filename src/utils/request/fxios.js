@@ -31,7 +31,7 @@ export class Fxios {
 	 * @memberof Fxios
 	 */
 	async request(url, options = {}) {
-		if (url.startsWith('/')) url.substr(1);
+		if (url.startsWith('/')) url = url.substr(1);
 		if (this.basicURL) url = this.basicURL + url;
 		options = { ...this.defaults, ...options };
 		const contentType = options.headers['Content-Type'];
@@ -76,7 +76,11 @@ export class Fxios {
 	 */
 	get(url, options = {}) {
 		options.method = 'GET';
-		return this.request(url, options);
+		if (!options.params) options.params = {};
+		options.params = Object.keys(options?.params)
+													 .map(key => `${ encodeURIComponent(key) }=${ encodeURIComponent(options.params[key]) }`)
+													 .join('&');
+		return this.request(`${ url }?${ options.params }`, options);
 	}
 
 	/**

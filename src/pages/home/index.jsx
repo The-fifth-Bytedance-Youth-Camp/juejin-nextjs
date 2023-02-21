@@ -21,8 +21,9 @@ const Home = ({ title, description, keywords = [], navList, userList, bannerList
 				<meta name="description" content={ description }/>
 				<meta name="keywords" content={ keywords.join(',') }/>
 			</Helmet>
-			<div className={ style.Home }>
-				<Navigation navList={ navList } onClick={ setCur_category }>
+			<Navigation navList={ navList } onClick={ setCur_category }>
+				<div className={ style.Home }>
+
 					<div className={ style.content }>
 						<div className={ style.post_list } style={ screenWidth <= 960 ? { width: screenWidth } : {} }>
 							<Chapter category={ cur_category }/>
@@ -33,8 +34,8 @@ const Home = ({ title, description, keywords = [], navList, userList, bannerList
 						</div>
 						<FloatBtn theme={ theme } changeTheme={ changeTheme }/>
 					</div>
-				</Navigation>
-			</div>
+				</div>
+			</Navigation>
 		</Fragment>
 	);
 };

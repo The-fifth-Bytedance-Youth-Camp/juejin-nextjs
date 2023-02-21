@@ -55,7 +55,7 @@
 .bottom {
   margin: 10px 0;
   padding: 15px;
-  background-color: #fff;
+  background-color: var(--secondary-background-color);
   display: flex;
   cursor: pointer;
 }
@@ -68,7 +68,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
-  color: #1d2129;
+  color: var(--message-notice-color);
 }
 
 .desc {

@@ -1,4 +1,26 @@
-export default function getHomePageData(req, res) {
+import { personRequest, postRequest } from '@/utils/request';
+
+async function getAuthorDetail(id) {
+	return await personRequest.get('/admin/find/public', {
+		params: { id, isAdmin: true },
+	});
+}
+
+export default async function getHomePageData(req, res) {
+	const { result: websiteListPost } = await postRequest.get('/website/list/post', {
+		params: { limit: 3 },
+	});
+	const userList = [];
+	for (const { author, total_watch_num } of websiteListPost) {
+		const authorDetail = await getAuthorDetail(author);
+		authorDetail.id = author;
+		delete authorDetail?.code;
+		if (Math.random() * 100 < 40) {
+			authorDetail.rank = 'https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-6.b69935b.png';
+		}
+		authorDetail.position = `前端 @ ${ authorDetail.name }`;
+		userList.push({ ...authorDetail, total_watch_num });
+	}
 	res.json({
 		// 二级导航：Navigation参数
 		navList: [
@@ -11,27 +33,6 @@ export default function getHomePageData(req, res) {
 			{ id: 8, name: '开发工具', tags: [] },
 			{ id: 9, name: '代码人生', tags: [] },
 			{ id: 10, name: '阅读', tags: [] },
-		],
-		// 作者榜信息
-		userList: [
-			{
-				name: '子奕',
-				avatar: 'https://p3-passport.byteimg.com/img/user-avatar/c2187f61d1fe229e6da86541432ba7d3~100x100.awebp',
-				rank: 'https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-6.b69935b.png',
-				position: '前端 @ Alibaba',
-			},
-			{
-				name: 'lala',
-				avatar: 'https://p3-passport.byteimg.com/img/user-avatar/c2187f61d1fe229e6da86541432ba7d3~100x100.awebp',
-				rank: 'https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-6.b69935b.png',
-				position: '前端 @ Alibaba',
-			},
-			{
-				name: 'lala',
-				avatar: 'https://p3-passport.byteimg.com/img/user-avatar/c2187f61d1fe229e6da86541432ba7d3~100x100.awebp',
-				rank: 'https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/img/lv-6.b69935b.png',
-				position: '前端 @ Alibaba',
-			},
 		],
 		// 广告栏信息
 		bannerList: [
@@ -46,5 +47,7 @@ export default function getHomePageData(req, res) {
 				mouse: true,
 			},
 		],
+		// 作者榜信息
+		userList,
 	});
 }

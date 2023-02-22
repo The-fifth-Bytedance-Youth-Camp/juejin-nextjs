@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './index.module.scss';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -7,10 +7,8 @@ import rehypeKatex from 'rehype-katex';
 import { Image } from 'antd';
 import CodeBlock from './codeBlock';
 import TagList from '../tagList';
-import useImage from '@/utils/hooks/useImage';
 
 const Article = ({ title, cover, content, category, tags, render = () => {} }) => {
-	const { parseSrc } = useImage();
 	const components = {
 		a: ({ ...props }) => <a { ...props } rel="canonical" target="_blank"/>,
 		pre: ({ children }) => {
@@ -19,6 +17,13 @@ const Article = ({ title, cover, content, category, tags, render = () => {} }) =
 			return <CodeBlock language={ language } code={ value }/>;
 		},
 	};
+	const [ coverSrc, setCoverSrc ] = useState('');
+
+	useEffect(() => {
+		const is4G = navigator.connection?.effectiveType.toLowerCase() === '4g';
+		setCoverSrc(`http://localhost:3100/uploads/${ is4G ? 'jpeg' : 'webp' }/${ cover }.${ is4G ? 'jpeg' : 'webp' }`);
+	}, [ cover ]);
+
 	return (
 		<div className={ style.Article + ' markdown-body' }>
 			<h1 className={ style.title }>{ title }</h1>
@@ -26,7 +31,7 @@ const Article = ({ title, cover, content, category, tags, render = () => {} }) =
 			{ cover ?
 				<div style={ { marginTop: '20px' } }>
 					<Image placeholder preview={ { mask: null } }
-								 width="100%" height={ 425 } style={ { objectFit: 'cover' } } src={ parseSrc(cover) }
+								 width="100%" height={ 425 } style={ { objectFit: 'cover' } } src={ coverSrc }
 								 alt={ `${ title } - 封面` }/>
 				</div>
 				: null

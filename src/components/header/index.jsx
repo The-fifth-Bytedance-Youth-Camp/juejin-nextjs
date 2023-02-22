@@ -35,7 +35,7 @@ const Header = ({ menuList, children }) => {
 								menuList.map(
 									({ id, name, tag }) =>
 										<li key={ id }>
-											<a className={ id === lightH ? `${ style.active }` : '' } key={ id }>
+											<a href="/" className={ id === lightH ? `${ style.active }` : '' } key={ id }>
 												{ name }
 											</a>
 											<span className={ !tag || tag === '' ? '' : style.tag }>{ tag }</span>

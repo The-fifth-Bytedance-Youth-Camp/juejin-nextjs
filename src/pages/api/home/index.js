@@ -7,7 +7,7 @@ async function getAuthorDetail(id) {
 }
 
 export default async function getHomePageData(req, res) {
-	const { result: websiteListPost } = await postRequest.get('/website/list/post', {
+	const { result: websiteListPost } = await postRequest.get('/post/list/author', {
 		params: { limit: 3 },
 	});
 	const userList = [];
@@ -25,14 +25,14 @@ export default async function getHomePageData(req, res) {
 		// 二级导航：Navigation参数
 		navList: [
 			{ id: 'mix', name: '综合', tags: [] },
-			{ id: 3, name: '后端', tags: [] },
-			{ id: 4, name: '前端', tags: [] },
-			{ id: 5, name: 'Android', tags: [] },
-			{ id: 6, name: 'iOS', tags: [] },
-			{ id: 7, name: '人工智能', tags: [] },
-			{ id: 8, name: '开发工具', tags: [] },
-			{ id: 9, name: '代码人生', tags: [] },
-			{ id: 10, name: '阅读', tags: [] },
+			{ id: 1, name: '后端', tags: [] },
+			{ id: 2, name: '前端', tags: [] },
+			{ id: 3, name: 'Android', tags: [] },
+			{ id: 4, name: 'iOS', tags: [] },
+			{ id: 5, name: '人工智能', tags: [] },
+			{ id: 6, name: '开发工具', tags: [] },
+			{ id: 7, name: '代码人生', tags: [] },
+			{ id: 8, name: '阅读', tags: [ '标签信息' ] },
 		],
 		// 广告栏信息
 		bannerList: [

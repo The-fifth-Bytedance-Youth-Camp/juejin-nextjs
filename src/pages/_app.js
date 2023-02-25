@@ -21,6 +21,7 @@ export default function App({ Component, pageProps }) {
 		(async () => {
 			const { headerList } = await bffRequest.get('/api/header');
 			setHeaderList(headerList);
+			await bffRequest.get('/api/website');
 		})();
 	}, []);
 	return (

@@ -26,8 +26,8 @@ async function getAuthorDetail(id) {
 
 export default async function searchPost(req, res) {
 	const { category, sort, page } = req.query;
-	let { rows: postList, pageIndex, pageCount } = await postRequest.get('/post/sort/find', {
-		params: { category, sort, page, rows: 10 },
+	let { rows: postList, total } = await postRequest.get('/post/sort/find', {
+		params: { category, sort, page, rows: 8 },
 	});
 	postList = postList?.map(item => ({
 		...item,
@@ -38,5 +38,5 @@ export default async function searchPost(req, res) {
 		retArr.push({ ...postListElement, author: (await getAuthorDetail(postListElement.author)).name });
 	}
 	// 文章信息
-	res.json({ postList: retArr, more: pageIndex >= pageCount });
+	res.json({ postList: retArr, more: +page < Math.ceil(total / 8) });
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import { EyeOutlined, LikeOutlined, CommentOutlined } from '@ant-design/icons';
 import { bffRequest } from '@/utils/request';
@@ -38,46 +38,66 @@ const PostPreview = ({ id, title, brief, watch_num, author, gmt_created, cover }
 	);
 };
 
-const Index = ({ category }) => {
+let moreData = false;
+let page = 1;
+let lastScrollTop = 0;
+
+const Chapter = ({ category }) => {
 	const [ sort, setSort ] = useState('comprehensive');
-	const [ postList, setPostList ] = useState([]);
-	const [ page, setPage ] = useState(1);
-	let lastScrollTop = 0;
+	const [ postList, setPostList ] = useState(null);
+	const [ onBottom, setOnBottom ] = useState(false);
 
-	const onScroll = async () => {
-		const viewportHeight = window.innerHeight;
-		const documentHeight = document.documentElement.scrollHeight;
-		const scrollTop = document.documentElement.scrollTop;
-		// 判断用户滑动的方向
-		const isScrollDown = scrollTop > lastScrollTop;
-		lastScrollTop = scrollTop;
-		// 判断是否滑动到页面底部前 200px
-		if (scrollTop + viewportHeight >= documentHeight - 200 && isScrollDown) {
-			// TODO
-			await getData();
-			setPage(page + 1);
+	const initData = useCallback(async (flag = false) => {
+		if (!postList || flag) {
+			let { postList, more } = await bffRequest.get('/api/home/search', {
+				params: { category, sort, page },
+			});
+			moreData = more;
+			setPostList(postList);
 		}
-	};
-
-	const getData = async () => {
-		let { postList: addList, more } = await bffRequest.get('/api/home/search', {
-			params: { category, sort, page },
-		});
-		if (more) setPostList([ ...postList, ...addList ]);
-	};
+	}, [ category, sort ]);
 
 	useEffect(() => {
+		(async () => {
+			await initData();
+		})();
+		const onScroll = async () => {
+			const viewportHeight = window.innerHeight;
+			const documentHeight = document.documentElement.scrollHeight;
+			const scrollTop = document.documentElement.scrollTop;
+			// 判断用户滑动的方向
+			const isScrollDown = scrollTop > lastScrollTop;
+			lastScrollTop = scrollTop;
+			// 判断是否滑动到页面底部前 300px
+			if (scrollTop + viewportHeight >= documentHeight - 300 && isScrollDown) {
+				setOnBottom(true);
+			} else {
+				setOnBottom(false);
+			}
+		};
 		window.addEventListener('scroll', onScroll);
 		return () => window.removeEventListener('scroll', onScroll);
-	}, []);
+	}, [ initData ]);
 
 	useEffect(() => {
-		setPostList([]);
-		setPage(1);
+		page = 1;
 		(async () => {
-			await getData();
+			await initData(true);
 		})();
-	}, [ category, sort ]);
+	}, [ category, sort, initData ]);
+
+	useEffect(() => {
+		(async () => {
+			if (onBottom && postList && page && moreData) {
+				page++;
+				let { postList: addList, more } = await bffRequest.get('/api/home/search', {
+					params: { category, sort, page },
+				});
+				moreData = more;
+				setPostList([ ...postList, ...addList ]);
+			}
+		})();
+	}, [ onBottom ]);
 
 	return (
 		<div className={ styles.wrapper }>
@@ -100,4 +120,4 @@ const Index = ({ category }) => {
 	);
 };
 
-export default Index;
+export default Chapter;

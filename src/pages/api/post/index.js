@@ -33,20 +33,20 @@ export default async function getPostPageData(req, res) {
 	});
 	const time = moment(gmt_created).format('YYYY年MM月DD日 HH:mm:ss');
 
-	let { result: recommendList } = await postRequest.get('/post/search', {
+	let { result: recommendList = [] } = await postRequest.get('/post/search', {
 		params: { state: '已发布', category, tags, page: 1, rows: 5 },
 	});
 	if (recommendList.length < 5) recommendList = [
 		...recommendList,
 		...(await postRequest.get('/post/search', {
 			params: { state: '已发布', category, page: 1, rows: 5 - recommendList.length },
-		})).result,
+		}))?.result || [],
 	];
 	if (recommendList.length < 5) recommendList = [
 		...recommendList,
 		...(await postRequest.get('/post/search', {
 			params: { state: '已发布', page: 1, rows: 5 - recommendList.length },
-		})).result,
+		})).result || [],
 	];
 
 	recommendList = recommendList.filter(({ id: rid }) => rid != id);
